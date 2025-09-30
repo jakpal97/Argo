@@ -1,0 +1,96 @@
+'use client'
+
+import React from 'react'
+
+const Footer = () => {
+	const currentYear = new Date().getFullYear()
+
+	const menuItems = [
+		{ name: 'Usługi', href: '#services' },
+		{ name: 'O nas', href: '#about' },
+		{ name: 'Kontakt', href: '#contact' },
+		{ name: 'Portfolio', href: '#portfolio' },
+	]
+
+	return (
+		<footer className="relative overflow-hidden">
+			{/* Video Background */}
+			<div className="absolute inset-0 w-full h-full">
+				<video
+					autoPlay
+					muted
+					loop
+					playsInline
+					className="absolute inset-0 w-full h-full object-cover"
+					crossOrigin="anonymous">
+					<source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
+				</video>
+				{/* Dark overlay for better text readability */}
+				<div className="absolute inset-0 bg-black/70"></div>
+			</div>
+
+			{/* Footer Content */}
+			<div className="relative z-10 text-white">
+				{/* Main Footer Section */}
+				<div className="max-w-7xl mx-auto px-8 py-16">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+						{/* Logo and Company Description */}
+						<div>
+							<div className="flex items-center space-x-3 mb-6">
+								<img
+									src="/logobez.png"
+									alt="Argo logo"
+									className="h-12 object-contain"
+									onError={e => (e.currentTarget.style.display = 'none')}
+								/>
+								<span className="text-2xl font-bold">ARGO</span>
+							</div>
+							<p className="text-gray-300 leading-relaxed">
+								Firma ARGO to lider w dziedzinie systemów bezpieczeństwa. Od ponad 15 lat dostarczamy kompleksowe
+								rozwiązania dla firm i instytucji, zapewniając najwyższy poziom ochrony.
+							</p>
+						</div>
+
+						{/* Navigation Menu */}
+						<div className="md:flex md:justify-end">
+							<nav className="flex flex-col space-y-4">
+								{menuItems.map((item, index) => (
+									<a
+										key={index}
+										href={item.href}
+										className="text-lg text-gray-300 hover:text-white transition-colors duration-200 hover:translate-x-2 transform">
+										{item.name}
+									</a>
+								))}
+							</nav>
+						</div>
+					</div>
+				</div>
+
+				{/* Copyright */}
+				<div className="border-t border-white/20 backdrop-blur-sm">
+					<div className="max-w-7xl mx-auto px-8 py-6">
+						<div className="md:flex md:items-center md:justify-between">
+							<div className="text-gray-400 text-sm">© {currentYear} ARGO. Wszystkie prawa zastrzeżone.</div>
+							<div className="mt-4 md:mt-0">
+								<div className="flex space-x-6 text-sm">
+									<a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+										Polityka prywatności
+									</a>
+									<a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+										Regulamin
+									</a>
+									<a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+										Cookies
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	)
+}
+
+export default Footer

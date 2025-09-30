@@ -11,10 +11,16 @@ const HeroAboutSection = () => {
 	}, [])
 
 	return (
-		<div className="relative  overflow-hidden m-5 rounded-2xl">
+		<div className="relative  overflow-hidden mx-5 mb-5 mt-10 rounded-2xl">
 			{/* Video Background */}
-			<div className="absolute inset-0 w-full h-full">
-				<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" crossOrigin="anonymous">
+			<div className="absolute inset-0 w-full ">
+				<video
+					autoPlay
+					muted
+					loop
+					playsInline
+					className="absolute inset-0 w-full  object-cover"
+					crossOrigin="anonymous">
 					<source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
 				</video>
 			</div>

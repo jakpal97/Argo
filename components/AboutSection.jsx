@@ -116,16 +116,7 @@ const AboutSection = () => {
 										Dzięki wieloletniemu doświadczeniu i niezachwianemu profesjonalizmowi, dostarczamy rozwiązania
 										bezpieczeństwa najwyższej klasy, dostosowane do unikalnych potrzeb każdego klienta.
 									</p>
-									<div className="flex items-center gap-4 pt-6">
-										<div className="flex -space-x-3">
-											{[1, 2, 3, 4].map(i => (
-												<div
-													key={i}
-													className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full border-3 border-white shadow-lg"></div>
-											))}
-										</div>
-										<span className="text-sm text-black font-light">Nasz zespół ekspertów</span>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -194,10 +185,7 @@ const AboutSection = () => {
 										</div>
 									</div>
 
-									<div className="flex items-center gap-3 text-blue-700 font-light group-hover:gap-4 transition-all duration-500 pt-4 border-t border-blue-200/50">
-										<span>Poznaj szczegóły</span>
-										<ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
-									</div>
+									
 								</div>
 							</div>
 						))}
