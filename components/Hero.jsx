@@ -245,8 +245,8 @@ export default function Hero() {
 						width: showContent ? 'calc(50% - 16px)' : 'calc(100% - 32px)',
 						height: 'calc(100vh - 32px)',
 					}}>
-					<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-						<source src="/herobg.mp4" type="video/mp4" />
+					<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover " crossOrigin="anonymous">
+						<source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
 					</video>
 					{/* Overlay dla lepszej czytelności tekstu */}
 					<div className="absolute inset-0 bg-black/20" />
