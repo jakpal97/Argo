@@ -31,14 +31,14 @@ const HeroAboutSection = () => {
 					className={`text-center  transform transition-all duration-1500 ${
 						isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
 					}`}>
-					<h1 className="text-6xl md:text-8xl font-light mb-8 tracking-tight leading-none">
+					<h1 className="text-6xl md:text-8xl font-light font-montserrat mb-8 tracking-tight leading-none">
 						<span className="text-white">Dlaczego</span>
 						<br />
 						<span className="text-white font-extralight">Firma ARGO?</span>
 					</h1>
 
 					<div className="max-w-4xl mx-auto mb-16">
-						<p className="text-xl md:text-2xl text-white leading-relaxed font-light mb-8">
+						<p className="text-xl md:text-2xl text-white leading-relaxed font-light font-inter mb-8">
 							Nie tylko dostarczamy systemy bezpieczeństwa — jesteśmy partnerem, który dba o spokój i bezpieczeństwo
 							naszych klientów.
 						</p>
@@ -46,13 +46,13 @@ const HeroAboutSection = () => {
 						<div className="w-24 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto mb-12"></div>
 
 						<Quote className="w-8 h-8 text-white/70 mx-auto mb-6" />
-						<p className="text-lg text-white/80 italic font-light max-w-2xl mx-auto">
+						<p className="text-lg text-white/80 italic font-light font-inter max-w-2xl mx-auto">
 							"Bezpieczeństwo to nasza pasja, a satysfakcja klienta — nasz priorytet"
 						</p>
 					</div>
 
 					<div className="flex justify-center">
-						<button className="group flex items-center gap-3 text-white hover:text-blue-300 transition-colors duration-500 text-lg font-light">
+						<button className="group flex items-center gap-3 text-white hover:text-blue-300 transition-colors duration-500 text-lg font-light font-inter">
 							<span>Skontaktuj się z nami</span>
 							<ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
 						</button>

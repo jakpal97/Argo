@@ -43,9 +43,9 @@ const Footer = () => {
 									className="h-12 object-contain"
 									onError={e => (e.currentTarget.style.display = 'none')}
 								/>
-								<span className="text-2xl font-bold">ARGO</span>
+								<span className="text-2xl font-bold font-montserrat">ARGO</span>
 							</div>
-							<p className="text-gray-300 leading-relaxed">
+							<p className="text-gray-300 leading-relaxed font-inter">
 								Firma ARGO to lider w dziedzinie systemów bezpieczeństwa. Od ponad 15 lat dostarczamy kompleksowe
 								rozwiązania dla firm i instytucji, zapewniając najwyższy poziom ochrony.
 							</p>
@@ -58,7 +58,7 @@ const Footer = () => {
 									<a
 										key={index}
 										href={item.href}
-										className="text-lg text-gray-300 hover:text-white transition-colors duration-200 hover:translate-x-2 transform">
+										className="text-lg font-inter text-gray-300 hover:text-white transition-colors duration-200 hover:translate-x-2 transform">
 										{item.name}
 									</a>
 								))}
@@ -71,16 +71,15 @@ const Footer = () => {
 				<div className=" backdrop-blur-sm">
 					<div className="max-w-7xl mx-auto px-8 py-6">
 						<div className="md:flex md:items-center md:justify-between">
-							<div className="text-gray-400 text-sm">© {currentYear} ARGO. Wszystkie prawa zastrzeżone.</div>
+							<div className="text-gray-400 text-sm font-inter">© {currentYear} ARGO. Wszystkie prawa zastrzeżone.</div>
 							<div className="mt-4 md:mt-0">
 								<div className="flex space-x-6 text-sm">
-									<a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+									<a href="#" className="text-gray-400 font-inter hover:text-white transition-colors duration-200">
 										Polityka prywatności
 									</a>
-									<a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+									<a href="#" className="text-gray-400 font-inter hover:text-white transition-colors duration-200">
 										Regulamin
 									</a>
-									
 								</div>
 							</div>
 						</div>

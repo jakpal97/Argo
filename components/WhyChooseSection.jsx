@@ -45,7 +45,7 @@ const WhyChooseSection = () => {
 					className={`text-center mb-20 transform transition-all duration-1500 ${
 						isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
 					}`}>
-					<h2 className="text-4xl md:text-5xl font-light text-black mb-8 tracking-wide">
+					<h2 className="text-5xl md:text-5xl font-bold font-inter text-black mb-8 tracking-wide">
 						Dlaczego wybierają nas klienci?
 					</h2>
 					<div className="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"></div>
@@ -63,8 +63,8 @@ const WhyChooseSection = () => {
 								<div className="p-4 bg-blue-100/50 rounded-2xl group-hover:scale-110 transition-transform duration-500">
 									<div className="text-blue-600">{feature.icon}</div>
 								</div>
-								<h3 className="text-xl font-light text-black tracking-wide">{feature.title}</h3>
-								<p className="text-black leading-relaxed font-light">{feature.description}</p>
+								<h3 className="text-xl font-light font-montserrat text-black tracking-wide">{feature.title}</h3>
+								<p className="text-black leading-relaxed font-light font-inter">{feature.description}</p>
 							</div>
 						</div>
 					))}
@@ -75,24 +75,30 @@ const WhyChooseSection = () => {
 					<div className="absolute inset-0  rounded-3xl  opacity-20"></div>
 					<div className="relative overflow-hidden p-16 rounded-3xl text-white text-center shadow-2xl ">
 						{/* Video Background */}
-						<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover rounded-3xl" crossOrigin="anonymous">
+						<video
+							autoPlay
+							muted
+							loop
+							playsInline
+							className="absolute inset-0 w-full h-full object-cover rounded-3xl"
+							crossOrigin="anonymous">
 							<source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
 						</video>
 
 						{/* Content */}
 						<div className="relative z-10">
 							<div className="max-w-4xl mx-auto">
-								<h3 className="text-4xl md:text-5xl font-light mb-8 tracking-wide leading-tight">
+								<h3 className="text-4xl md:text-5xl font-light font-montserrat mb-8 tracking-wide leading-tight">
 									Gotowy na współpracę z liderem branży?
 								</h3>
 
-								<p className="text-xl text-blue-100 mb-12 leading-relaxed font-light max-w-3xl mx-auto">
+								<p className="text-xl text-blue-100 mb-12 leading-relaxed font-light font-inter max-w-3xl mx-auto">
 									Jeśli poszukujesz najwyższej jakości rozwiązań bezpieczeństwa, skontaktuj się z nami już dziś. Omówimy
 									Twoje potrzeby i przygotujemy spersonalizowaną ofertę.
 								</p>
 
 								<div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-									<button className="group bg-white text-blue-800 px-10 py-5 rounded-full font-light shadow-2xl hover:shadow-white/10 transform hover:scale-105 transition-all duration-500">
+									<button className="group bg-white text-blue-800 px-10 py-5 rounded-full font-light font-inter shadow-2xl hover:shadow-white/10 transform hover:scale-105 transition-all duration-500">
 										<span className="flex items-center gap-3 text-lg">
 											Skontaktuj się z nami
 											<ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />

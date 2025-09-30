@@ -111,12 +111,11 @@ const AboutSection = () => {
 									className="w-full h-72 object-cover rounded-2xl mb-8 group-hover:scale-[1.02] transition-transform duration-700 filter grayscale group-hover:grayscale-0"
 								/>
 								<div className="space-y-6">
-									<h3 className="text-2xl font-light text-black tracking-wide">Nasza Misja</h3>
-									<p className="text-black leading-relaxed font-light">
+									<h3 className="text-2xl font-light font-montserrat text-black tracking-wide">Nasza Misja</h3>
+									<p className="text-black leading-relaxed font-light font-inter">
 										Dzięki wieloletniemu doświadczeniu i niezachwianemu profesjonalizmowi, dostarczamy rozwiązania
 										bezpieczeństwa najwyższej klasy, dostosowane do unikalnych potrzeb każdego klienta.
 									</p>
-									
 								</div>
 							</div>
 						</div>
@@ -132,11 +131,11 @@ const AboutSection = () => {
 										<div className="text-blue-600 group-hover:scale-110 transition-transform duration-500 p-3 bg-blue-100/50 rounded-full">
 											{stat.icon}
 										</div>
-										<div className="text-3xl font-light text-black">
+										<div className="text-3xl font-light font-montserrat text-black">
 											{stat.number}
 											<span className="text-blue-600">{stat.suffix}</span>
 										</div>
-										<p className="text-sm text-black font-light leading-tight">{stat.label}</p>
+										<p className="text-sm text-black font-light font-inter leading-tight">{stat.label}</p>
 									</div>
 								</div>
 							))}
@@ -146,9 +145,9 @@ const AboutSection = () => {
 					{/* Right Column - Elegant Services */}
 					<div className="lg:col-span-3 space-y-8">
 						<div className="">
-							<h2 className="text-4xl font-light text-black mb-6 tracking-wide">O firmie</h2>
+							<h2 className="text-5xl font-bold font-montserrat text-black mb-6 tracking-wide">O firmie</h2>
 							<div className="w-16 h-px bg-gradient-to-r from-blue-400 to-transparent mb-8"></div>
-							<p className="text-black leading-relaxed font-light text-lg">
+							<p className="text-black leading-relaxed font-light font-inter text-lg">
 								Firma ARGO to synonim doskonałości w dziedzinie systemów bezpieczeństwa. Specjalizujemy się w
 								kompleksowych rozwiązaniach dla wymagających klientów.
 							</p>
@@ -169,23 +168,21 @@ const AboutSection = () => {
 											{service.icon}
 										</div>
 										<div className="flex-1">
-											<h3 className="text-2xl font-light text-black mb-3 group-hover:text-blue-900 transition-colors duration-500 tracking-wide">
+											<h3 className="text-2xl font-light font-montserrat text-black mb-3 group-hover:text-blue-900 transition-colors duration-500 tracking-wide">
 												{service.title}
 											</h3>
-											<p className="text-black leading-relaxed font-light mb-6">{service.description}</p>
+											<p className="text-black leading-relaxed font-light font-inter mb-6">{service.description}</p>
 
 											<div className="grid grid-cols-2 gap-3 mb-6">
 												{service.features.map((feature, idx) => (
 													<div key={idx} className="flex items-center gap-2 text-sm text-black">
 														<div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-														<span className="font-light">{feature}</span>
+														<span className="font-light font-inter">{feature}</span>
 													</div>
 												))}
 											</div>
 										</div>
 									</div>
-
-									
 								</div>
 							</div>
 						))}

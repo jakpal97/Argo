@@ -102,8 +102,8 @@ const ContactSection = () => {
 			<div className="max-w-7xl mx-auto px-8">
 				{/* Header */}
 				<div className="text-center mb-16">
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Skontaktuj się z nami</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
+					<h2 className="text-4xl md:text-5xl font-bold font-montserrat text-gray-900 mb-6">Skontaktuj się z nami</h2>
+					<p className="text-xl font-inter text-gray-600 max-w-3xl mx-auto">
 						Jesteś gotowy na profesjonalne zabezpieczenie swojego obiektu? Skontaktuj się z nami już dziś i otrzymaj
 						bezpłatną wycenę dostosowaną do Twoich potrzeb.
 					</p>
@@ -112,12 +112,12 @@ const ContactSection = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 					{/* Formularz kontaktowy */}
 					<div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8">
-						<h3 className="text-2xl font-bold text-gray-900 mb-6">Wyślij zapytanie</h3>
+						<h3 className="text-2xl font-bold font-montserrat text-gray-900 mb-6">Wyślij zapytanie</h3>
 
 						<form onSubmit={handleSubmit} className="space-y-6">
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 								<div>
-									<label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+									<label htmlFor="name" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
 										Imię i nazwisko *
 									</label>
 									<input
@@ -127,13 +127,13 @@ const ContactSection = () => {
 										value={formData.name}
 										onChange={handleChange}
 										required
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors font-inter"
 										placeholder="Jan Kowalski"
 									/>
 								</div>
 
 								<div>
-									<label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+									<label htmlFor="email" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
 										Email *
 									</label>
 									<input
@@ -143,7 +143,7 @@ const ContactSection = () => {
 										value={formData.email}
 										onChange={handleChange}
 										required
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors font-inter"
 										placeholder="jan@example.com"
 									/>
 								</div>
@@ -151,7 +151,7 @@ const ContactSection = () => {
 
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 								<div>
-									<label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+									<label htmlFor="phone" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
 										Telefon
 									</label>
 									<input

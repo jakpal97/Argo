@@ -99,8 +99,8 @@ const ServicesSection = () => {
 		<section id="services" className="py-20 bg-white">
 			<div className="max-w-7xl mx-auto px-8">
 				<div className="text-center mb-16">
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Nasze Usługi</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
+					<h2 className="text-4xl md:text-5xl font-bold font-montserrat text-gray-900 mb-6">Nasze Usługi</h2>
+					<p className="text-xl font-inter text-gray-600 max-w-3xl mx-auto">
 						Oferujemy kompleksowe rozwiązania w zakresie systemów bezpieczeństwa, dostosowane do indywidualnych potrzeb
 						każdego klienta.
 					</p>
@@ -113,14 +113,12 @@ const ServicesSection = () => {
 							className="group relative bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.02] flex flex-col h-full">
 							<div className="flex items-center mb-6">
 								<div className="text-blue-600 mr-4">{service.icon}</div>
-								<h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+								<h3 className="text-xl font-bold font-montserrat text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
 									{service.title}
 								</h3>
 							</div>
 
-							<p className="text-gray-600 leading-relaxed mb-8 flex-grow">{service.description}</p>
-
-							
+							<p className="text-gray-600 font-inter leading-relaxed mb-8 flex-grow">{service.description}</p>
 						</div>
 					))}
 				</div>
