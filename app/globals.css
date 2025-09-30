@@ -1,26 +1,71 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff; /* zawsze białe tło */
+	--foreground: #0f172a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-space-grotesk);
 }
 
+/* Wymuszamy białe tło również w trybie dark */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: #ffffff;
+		--foreground: #0f172a;
+	}
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+		sans-serif;
+}
+
+/* Animacje dla komponentu Hero */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes iconPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.05);
+		opacity: 0.9;
+	}
+}
+
+.animate-fadeIn {
+	animation: fadeIn 0.8s ease-out;
+}
+
+.animate-iconPulse {
+	animation: iconPulse 3s ease-in-out infinite;
+}
+
+/* Płynne przejścia dla animacji Hero */
+.hero-video-transition {
+	transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	will-change: width;
+	transform: translateZ(0); /* Wymuszenie hardware acceleration */
+	backface-visibility: hidden; /* Zapobiega migotaniu */
+}
+
+.hero-content-transition {
+	transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
