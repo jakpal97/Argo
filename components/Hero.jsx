@@ -105,7 +105,7 @@ export default function Hero() {
 				<div className="w-1/2 h-[calc(100vh-32px)] flex flex-col px-12 py-8 bg-gradient-to-br from-gray-50 to-white hero-content-transition rounded-tr-2xl">
 					{/* Logo i ARGO na górze - wyśrodkowane */}
 					<div className="flex flex-col items-center pt-8 mt-15">
-						<div className="mb-6 animate-fadeIn">
+						<div className="mb-6 animate-hero-scaleIn animate-delay-300 hover-lift">
 							<img
 								src="/logobez.png"
 								alt="Argo logo"
@@ -113,23 +113,37 @@ export default function Hero() {
 								onError={e => (e.currentTarget.style.display = 'none')}
 							/>
 						</div>
-						<div className="text-black text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight font-bold select-none animate-fadeIn mb-8">
-							ARGO
+						<div className="text-black text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight font-bold select-none animate-hero-slideFromBottom animate-delay-500 mb-8 relative">
+							<span className="block animate-text-reveal animate-delay-700">ARGO</span>
+							<div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-xl opacity-0 animate-hero-glow animate-delay-900"></div>
 						</div>
 					</div>
 
 					{/* Treść w środku */}
 					<div className="flex-grow flex flex-col justify-center max-w-lg mx-auto">
-						<h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight text-left">
-							Kompleksowe rozwiązania bezpieczeństwa
-						</h2>
-						<p className="text-lg text-gray-600 mb-8 leading-relaxed text-left">
-							Zapewniamy profesjonalne systemy bezpieczeństwa dla Twojego biznesu. Od monitoringu CCTV po systemy
-							alarmowe - kompleksowo chronimy to, co najważniejsze.
-						</p>
+						<div className="overflow-hidden">
+							<h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight text-left animate-text-reveal animate-delay-700">
+								Kompleksowe rozwiązania bezpieczeństwa
+							</h2>
+						</div>
+						<div className="overflow-hidden">
+							<p className="text-lg text-gray-600 mb-8 leading-relaxed text-left animate-hero-slideFromLeft animate-delay-900">
+								Zapewniamy profesjonalne systemy bezpieczeństwa dla Twojego biznesu. Od monitoringu CCTV po systemy
+								alarmowe - kompleksowo chronimy to, co najważniejsze.
+							</p>
+						</div>
 						<div className="flex justify-center">
-							<button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
-								Skontaktuj się z nami
+							<button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-xl transition-all duration-500 shadow-lg hover-lift hover-glow animate-hero-fadeIn animate-delay-1100 transform-gpu">
+								<span className="flex items-center gap-3">
+									Skontaktuj się z nami
+									<svg
+										className="w-5 h-5 transition-transform group-hover:translate-x-2"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+									</svg>
+								</span>
 							</button>
 						</div>
 					</div>

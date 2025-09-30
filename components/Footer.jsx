@@ -68,7 +68,7 @@ const Footer = () => {
 				</div>
 
 				{/* Copyright */}
-				<div className="border-t border-white/20 backdrop-blur-sm">
+				<div className=" backdrop-blur-sm">
 					<div className="max-w-7xl mx-auto px-8 py-6">
 						<div className="md:flex md:items-center md:justify-between">
 							<div className="text-gray-400 text-sm">© {currentYear} ARGO. Wszystkie prawa zastrzeżone.</div>
@@ -80,9 +80,7 @@ const Footer = () => {
 									<a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
 										Regulamin
 									</a>
-									<a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-										Cookies
-									</a>
+									
 								</div>
 							</div>
 						</div>
