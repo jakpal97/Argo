@@ -103,7 +103,7 @@ export default function Hero() {
 								<img
 									src="/logobez.png"
 									alt="Argo logo"
-									className="h-[120px] object-contain"
+									className="h-[100px] object-contain"
 									onError={e => (e.currentTarget.style.display = 'none')}
 								/>
 							</div>
@@ -127,7 +127,7 @@ export default function Hero() {
 								</p>
 							</div>
 							<div className="flex justify-center">
-								<button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold font-inter py-4 px-10 rounded-xl transition-all duration-500 shadow-lg hover-lift hover-glow animate-hero-fadeIn animate-delay-1100 transform-gpu">
+								<button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold font-inter py-4 px-10 rounded-xl transition-all duration-500 shadow-lg hover-lift hover-glow animate-hero-fadeIn animate-delay-1100 transform-gpu ">
 									<span className="flex items-center gap-3">
 										Skontaktuj się z nami
 										<svg
