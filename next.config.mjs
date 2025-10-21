@@ -1,4 +1,39 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+	// Optymalizacje wydajności
+	compress: true,
+	poweredByHeader: false,
 
-export default nextConfig;
+	// Optymalizacja obrazów
+	images: {
+		formats: ['image/webp', 'image/avif'],
+		minimumCacheTTL: 60,
+	},
+
+	// Optymalizacja CSS
+	experimental: {
+		optimizeCss: true,
+	},
+
+	// Optymalizacja JavaScript
+	swcMinify: true,
+
+	// Optymalizacja bundle
+	webpack: (config, { dev, isServer }) => {
+		if (!dev && !isServer) {
+			config.optimization.splitChunks = {
+				chunks: 'all',
+				cacheGroups: {
+					vendor: {
+						test: /[\\/]node_modules[\\/]/,
+						name: 'vendors',
+						chunks: 'all',
+					},
+				},
+			}
+		}
+		return config
+	},
+}
+
+export default nextConfig

@@ -62,16 +62,35 @@ const AboutSection = () => {
 			description:
 				'Profesjonalna obsługa serwisowa z gwarancją szybkiej reakcji i wysokiej jakości wykonanych usług naprawczych.',
 			features: ['Serwis 24/7', 'Części zamienne', 'Modernizacje', 'Wsparcie techniczne'],
-			color: 'from-blue-800 via-blue-900 to-indigo-900',
-			accent: 'from-emerald-400 to-teal-300',
+			color: 'blue',
 		},
 	]
 
 	const stats = [
-		{ number: '15', label: 'Lat doświadczenia', icon: <Award className="w-5 h-5" />, suffix: '+' },
-		{ number: '2500', label: 'Zrealizowanych projektów', icon: <Target className="w-5 h-5" />, suffix: '+' },
-		{ number: '98', label: 'Zadowolonych klientów', icon: <Heart className="w-5 h-5" />, suffix: '%' },
-		{ number: '24', label: 'Wsparcie techniczne', icon: <Clock className="w-5 h-5" />, suffix: '/7' },
+		{
+			number: '15',
+			label: 'Lat doświadczenia w facility management',
+			icon: <Award className="w-5 h-5" />,
+			suffix: '+',
+		},
+		{
+			number: '2500',
+			label: 'Zrealizowanych projektów w obsłudze technicznej obiektów',
+			icon: <Target className="w-5 h-5" />,
+			suffix: '+',
+		},
+		{
+			number: '98',
+			label: 'Zadowolonych klientów dzięki skutecznej diagnostyce technicznej',
+			icon: <Heart className="w-5 h-5" />,
+			suffix: '%',
+		},
+		{
+			number: '24',
+			label: 'Wsparcie techniczne i serwis maszyn i urządzeń',
+			icon: <Clock className="w-5 h-5" />,
+			suffix: '/7',
+		},
 	]
 
 	const features = [
@@ -96,7 +115,7 @@ const AboutSection = () => {
 	]
 
 	return (
-		<div className="relative min-h-screen bg-white overflow-hidden">
+		<div className="relative min-h-screen bg-white overflow-hidden" id="about">
 			<div className="relative z-10 max-w-7xl mx-auto px-8 pt-24" ref={sectionRef}>
 				{/* Elegant Main Content */}
 				<div className="grid lg:grid-cols-5 gap-16 mb-32">
@@ -113,8 +132,9 @@ const AboutSection = () => {
 								<div className="space-y-6">
 									<h3 className="text-2xl font-light font-montserrat text-black tracking-wide">Nasza Misja</h3>
 									<p className="text-black leading-relaxed font-light font-inter">
-										Dzięki wieloletniemu doświadczeniu i niezachwianemu profesjonalizmowi, dostarczamy rozwiązania
-										bezpieczeństwa najwyższej klasy, dostosowane do unikalnych potrzeb każdego klienta.
+										Dostarczamy profesjonalne rozwiązania w zakresie maintenance, FM outsourcingu i obsługi technicznej
+										obiektów, zapewniając najwyższe standardy bezpieczeństwa i efektywności, dostosowane do potrzeb
+										każdego klienta.
 									</p>
 								</div>
 							</div>
@@ -128,7 +148,7 @@ const AboutSection = () => {
 									className="group bg-white/60 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/30 hover:shadow-2xl hover:scale-105 transition-all duration-500"
 									style={{ animationDelay: `${index * 150}ms` }}>
 									<div className="flex flex-col items-center text-center space-y-3">
-										<div className="text-blue-600 group-hover:scale-110 transition-transform duration-500 p-3 bg-blue-100/50 rounded-full">
+										<div className="text-white group-hover:scale-110 transition-transform duration-500 p-3 bg-blue-600 rounded-full">
 											{stat.icon}
 										</div>
 										<div className="text-3xl font-light font-montserrat text-black">
@@ -148,8 +168,10 @@ const AboutSection = () => {
 							<h2 className="text-5xl font-bold font-montserrat text-black mb-6 tracking-wide">O firmie</h2>
 							<div className="w-16 h-px bg-gradient-to-r from-blue-400 to-transparent mb-8"></div>
 							<p className="text-black leading-relaxed font-light font-inter text-lg">
-								Firma ARGO to synonim doskonałości w dziedzinie systemów bezpieczeństwa. Specjalizujemy się w
-								kompleksowych rozwiązaniach dla wymagających klientów.
+								ARGO System to ekspert w obsłudze technicznej obiektów i facility management, zapewniający kompleksową
+								obsługę obiektów oraz pełną diagnostykę techniczną instalacji przemysłowych. Dzięki doświadczeniu w
+								maintenance budynków komercyjnych i przemysłowych, gwarantujemy bezpieczeństwo, niezawodność i pełną
+								kontrolę nad każdym systemem technicznym.
 							</p>
 						</div>
 
@@ -163,8 +185,7 @@ const AboutSection = () => {
 
 								<div className="relative z-10">
 									<div className="flex items-start gap-6 mb-6">
-										<div
-											className={`p-4 rounded-2xl bg-gradient-to-br ${service.accent} text-white group-hover:scale-110 transition-transform duration-500 shadow-lg`}>
+										<div className="p-4 rounded-2xl bg-blue-600 text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
 											{service.icon}
 										</div>
 										<div className="flex-1">

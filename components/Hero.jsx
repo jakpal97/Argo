@@ -65,17 +65,17 @@ export default function Hero() {
 
 					{isMenuOpen && (
 						<div className="fixed top-20 right-6 z-40 bg-white/95 backdrop-blur-md rounded-lg shadow-xl border border-gray-200 py-2 min-w-[200px] transition-all duration-300">
+							<a href="#whyUs" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+								Dlaczego My
+							</a>
+							<a href="#about" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+								O firmie
+							</a>
 							<a href="#services" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
 								Usługi
 							</a>
-							<a href="#about" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
-								O nas
-							</a>
-							<a href="#contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+							<a href="/kontakt" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
 								Kontakt
-							</a>
-							<a href="#portfolio" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
-								Portfolio
 							</a>
 						</div>
 					)}
@@ -89,6 +89,7 @@ export default function Hero() {
 						muted
 						loop
 						playsInline
+						preload="none"
 						className="absolute inset-0 w-full h-full object-cover"
 						crossOrigin="anonymous">
 						<source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
@@ -99,37 +100,37 @@ export default function Hero() {
 					<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[95%] bg-white rounded-2xl shadow-2xl p-12 flex flex-col hero-content-transition z-10">
 						{/* Logo i ARGO na górze - wyśrodkowane */}
 						<div className="flex flex-col items-center mb-8">
-							<div className="mb-6 animate-hero-scaleIn animate-delay-300 hover-lift">
+							<div className="hover-lift">
 								<img
 									src="/logobez.png"
 									alt="Argo logo"
-									className="h-[100px] object-contain"
+									width="200"
+									height="150"
+									className="h-[150px] object-contain"
 									onError={e => (e.currentTarget.style.display = 'none')}
 								/>
-							</div>
-							<div className="text-black text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight font-bold font-montserrat select-none animate-hero-slideFromBottom animate-delay-500 mb-8 relative">
-								<span className="block animate-text-reveal animate-delay-700">ARGO</span>
-								<div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-xl opacity-0 animate-hero-glow animate-delay-900"></div>
 							</div>
 						</div>
 
 						{/* Treść w środku */}
 						<div className="flex-grow flex flex-col justify-center space-y-6">
 							<div className="overflow-hidden">
-								<h2 className="text-4xl font-bold font-inter text-gray-900 mb-6 leading-tight text-center animate-text-reveal animate-delay-700">
-									Kompleksowe rozwiązania bezpieczeństwa
+								<h2 className="text-4xl font-bold font-inter text-gray-900 mb-6 leading-tight text-center">
+									Profesjonalna obsługa i kontrola techniczna Twojego obiektu
 								</h2>
 							</div>
 							<div className="overflow-hidden">
-								<p className="text-lg font-inter text-gray-600 mb-8 leading-relaxed text-center animate-hero-slideFromLeft animate-delay-900">
-									Zapewniamy profesjonalne systemy bezpieczeństwa dla Twojego biznesu. Od monitoringu CCTV po systemy
-									alarmowe - kompleksowo chronimy to, co najważniejsze.
+								<p className="text-lg font-inter text-gray-600 mb-8 leading-relaxed text-center">
+									Dbamy o obsługę techniczną obiektów na najwyższym poziomie, zapewniając kompleksową obsługę obiektów i
+									pełne bezpieczeństwo instalacji przemysłowych. Jesteśmy Twoim pewnym partnerem w FM outsourcingu,
+									konserwacji (maintenance) urządzeń oraz codziennej diagnostyce technicznej, dzięki czemu Twój obiekt
+									działa niezawodnie.
 								</p>
 							</div>
-							<div className="flex justify-center">
-								<button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold font-inter py-4 px-10 rounded-xl transition-all duration-500 shadow-lg hover-lift hover-glow animate-hero-fadeIn animate-delay-1100 transform-gpu ">
+							<div className="flex justify-center ">
+								<button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold font-inter py-4 px-10 rounded-xl transition-all duration-300 shadow-lg hover-lift hover-glow">
 									<span className="flex items-center gap-3">
-										Skontaktuj się z nami
+										O Nas
 										<svg
 											className="w-5 h-5 transition-transform group-hover:translate-x-2"
 											fill="none"

@@ -19,26 +19,24 @@ const WhyChooseSection = () => {
 	const features = [
 		{
 			title: 'Doświadczenie i Profesjonalizm',
-			description:
-				'Nasz zespół składa się z wykwalifikowanych techników i inżynierów z wieloletnim doświadczeniem w branży bezpieczeństwa.',
+			description: 'Zespół certyfikowanych specjalistów w FM outsourcingu i obsłudze maszyn i urządzeń.',
 			icon: <Briefcase className="w-6 h-6" />,
 		},
 		{
-			title: 'Bezpieczeństwo na Pierwszym Miejscu',
-			description:
-				'Wszystkie nasze usługi są projektowane z myślą o zapewnieniu najwyższego poziomu bezpieczeństwa i ochrony.',
+			title: 'Bezpieczeństwo i niezawodnosć',
+			description: 'Wszystkie systemy i instalacje działają zgodnie z najwyższymi standardami w facility management.',
 			icon: <Shield className="w-6 h-6" />,
 		},
 		{
 			title: 'Indywidualne Podejście',
 			description:
-				'Każdy projekt traktujemy indywidualnie, dostosowując rozwiązania do specyficznych potrzeb i wymagań klienta.',
+				'Dostosowujemy rozwiązania do specyficznych potrzeb klienta, zapewniając pełną dokumentację techniczną.',
 			icon: <Globe className="w-6 h-6" />,
 		},
 	]
 
 	return (
-		<div className="relative min-h-screen bg-white overflow-hidden">
+		<div className="relative min-h-screen bg-white overflow-hidden ">
 			<div className="relative z-10 max-w-7xl mx-auto px-8 py-24">
 				{/* Header Section */}
 				<div
@@ -49,6 +47,11 @@ const WhyChooseSection = () => {
 						Dlaczego wybierają nas klienci?
 					</h2>
 					<div className="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"></div>
+					<p className="pt-10">
+						Klienci wybierają ARGO System, bo jesteśmy liderem w obsłudze technicznej obiektów i facility management.
+						Nasze doświadczenie pozwala zapewnić bezawaryjne działanie budynków, profesjonalną diagnostykę techniczną
+						oraz skuteczny maintenance wszystkich instalacji i urządzeń.
+					</p>
 				</div>
 
 				{/* Features Grid */}
@@ -93,8 +96,8 @@ const WhyChooseSection = () => {
 								</h3>
 
 								<p className="text-xl text-blue-100 mb-12 leading-relaxed font-light font-inter max-w-3xl mx-auto">
-									Jeśli poszukujesz najwyższej jakości rozwiązań bezpieczeństwa, skontaktuj się z nami już dziś. Omówimy
-									Twoje potrzeby i przygotujemy spersonalizowaną ofertę.
+									Skontaktuj się z nami i poznaj, jak nasza kompleksowa obsługa obiektów, FM outsourcing i maintenance
+									mogą usprawnić Twój biznes.
 								</p>
 
 								<div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">

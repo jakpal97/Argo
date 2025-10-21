@@ -8,7 +8,7 @@ const Footer = () => {
 	const menuItems = [
 		{ name: 'Usługi', href: '#services' },
 		{ name: 'O nas', href: '#about' },
-		{ name: 'Kontakt', href: '#contact' },
+		{ name: 'Kontakt', href: '/kontakt' },
 		{ name: 'Portfolio', href: '#portfolio' },
 	]
 
@@ -46,8 +46,10 @@ const Footer = () => {
 								<span className="text-2xl font-bold font-montserrat">ARGO</span>
 							</div>
 							<p className="text-gray-300 leading-relaxed font-inter">
-								Firma ARGO to lider w dziedzinie systemów bezpieczeństwa. Od ponad 15 lat dostarczamy kompleksowe
-								rozwiązania dla firm i instytucji, zapewniając najwyższy poziom ochrony.
+								Jako lider w facility management i obsłudze technicznej obiektów, dbamy o bezawaryjne funkcjonowanie
+								budynków i instalacji. Nasze usługi obejmują diagnostykę techniczną, maintenance maszyn i urządzeń oraz
+								tworzenie kompletnej dokumentacji technicznej, aby zapewnić maksymalne bezpieczeństwo i efektywność
+								Twojej infrastruktury.
 							</p>
 						</div>
 

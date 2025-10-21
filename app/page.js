@@ -16,6 +16,6 @@ export default function Home() {
 			<WhyChooseSection />
 			<ContactSection />
 			<Footer />
-		</div>
+				</div>
 	)
 }
