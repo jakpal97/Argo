@@ -10,10 +10,10 @@ const nextConfig = {
 		minimumCacheTTL: 60,
 	},
 
-	// Optymalizacja CSS
-	experimental: {
-		optimizeCss: true,
-	},
+	// Optymalizacja CSS - wyłączone z powodu problemów z critters na Vercel
+	// experimental: {
+	// 	optimizeCss: true,
+	// },
 
 	// Optymalizacja JavaScript
 	swcMinify: true,
