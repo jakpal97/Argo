@@ -1,296 +1,232 @@
 'use client'
-
 import React, { useState } from 'react'
+import { Send, Phone, Mail, Globe, ArrowUpRight, Facebook, Linkedin, Instagram } from 'lucide-react'
 
-const ContactSection = () => {
-	const [formData, setFormData] = useState({
-		name: '',
-		email: '',
-		phone: '',
-		company: '',
-		message: '',
-		service: '',
-	})
+const ContactFooter = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
-	const handleChange = e => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		})
-	}
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setIsSubmitting(true)
+        // Symulacja wysyłania
+        setTimeout(() => setIsSubmitting(false), 2000)
+    }
 
-	const handleSubmit = e => {
-		e.preventDefault()
-		console.log('Form submitted:', formData)
-	}
+    return (
+        <footer className="relative bg-[#020202] text-white pt-24 font-sans border-t border-white/5 overflow-hidden">
+            
+            {/* Globalne style dla inputów */}
+            <style jsx>{`
+                .tech-input {
+                    background: rgba(255, 255, 255, 0.03);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    color: white;
+                    transition: all 0.3s ease;
+                }
+                .tech-input:focus {
+                    border-color: #3b82f6;
+                    background: rgba(59, 130, 246, 0.05);
+                    outline: none;
+                    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+                }
+                /* Wielki napis w tle stopki */
+                .giant-text {
+                    font-size: 15vw;
+                    line-height: 0.8;
+                    font-weight: 900;
+                    color: #080808;
+                    user-select: none;
+                    pointer-events: none;
+                    white-space: nowrap;
+                }
+            `}</style>
 
-	const contactInfo = [
-		{
-			icon: (
-				<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-					/>
-				</svg>
-			),
-			label: 'Telefon',
-			value: '+48 517 463 469',
-			href: '+48 517 463 469',
-		},
-		{
-			icon: (
-				<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-					/>
-				</svg>
-			),
-			label: 'Email',
-			value: 'rdomagalski@argo-system.pl',
-			href: 'rdomagalski@argo-system.pl',
-		},
-		{
-			icon: (
-				<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-					/>
-					<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-				</svg>
-			),
-			label: 'Adres',
-			value: 'ul. Przykładowa 123\n00-000 Warszawa',
-			href: '#',
-		},
-		{
-			icon: (
-				<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-					/>
-				</svg>
-			),
-			label: 'Godziny pracy',
-			value: 'Pon-Pt: 8:00-18:00\nSb: 9:00-14:00',
-			href: '#',
-		},
-	]
+            <div className="max-w-[1600px] mx-auto px-6 lg:px-8 relative z-10">
+                
+                {/* --- SEKCJA KONTAKTOWA (GÓRA) --- */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 mb-32">
+                    
+                    {/* LEWA STRONA: Dane i Narracja */}
+                    <div>
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                            <span className="font-mono text-green-500/80 text-xs tracking-widest uppercase">Direct Contact</span>
+                        </div>
+                        
+                        <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                            Rozpocznijmy <br />
+                            <span className="text-blue-600">współpracę.</span>
+                        </h2>
+                        
+                        <p className="text-gray-400 text-lg mb-12 max-w-md font-light leading-relaxed">
+                            Skontaktuj się bezpośrednio z koordynatorem technicznym. 
+                            Zapewniamy szybką wycenę i terminowe realizacje na terenie całego kraju.
+                        </p>
 
-	const services = [
-		'Przeglądy techniczne i audyty',
-		'Obsługa maszyn i urządzeń',
-		'Utrzymanie instalacji przemysłowych',
-		
-	]
+                        <div className="space-y-8">
+                            
+                            {/* Telefon */}
+                            <div className="flex items-start gap-4 group cursor-pointer">
+                                <div className="p-4 bg-white/5 rounded-full border border-white/10 group-hover:border-blue-500/50 transition-colors">
+                                    <Phone className="w-6 h-6 text-gray-300 group-hover:text-blue-400" />
+                                </div>
+                                <div>
+                                    <p className="text-xs text-gray-500 uppercase tracking-widest font-mono mb-1">Telefon Bezpośredni</p>
+                                    <a href="tel:+48517463469" className="text-xl font-medium group-hover:text-blue-400 transition-colors block">
+                                        +48 517 463 469
+                                    </a>
+                                </div>
+                            </div>
 
-	return (
-		<section id="contact" className="py-20 " >
-			<div className="max-w-7xl mx-auto px-8">
-				{/* Header */}
-				<div className="text-center mb-16">
-					<h2 className="text-4xl md:text-5xl font-bold font-montserrat text-gray-900 mb-6">Skontaktuj się z nami</h2>
-					<p className="text-xl font-inter text-gray-600 max-w-3xl mx-auto">
-						Chcesz, aby Twój budynek działał niezawodnie? Skorzystaj z doświadczenia lidera w obsłudze technicznej
-						obiektów, maintenance i facility management. Otrzymaj bezpłatną wycenę oraz dopasowaną ofertę już dziś!
-					</p>
-				</div>
+                            {/* Email */}
+                            <div className="flex items-start gap-4 group cursor-pointer">
+                                <div className="p-4 bg-white/5 rounded-full border border-white/10 group-hover:border-blue-500/50 transition-colors">
+                                    <Mail className="w-6 h-6 text-gray-300 group-hover:text-blue-400" />
+                                </div>
+                                <div>
+                                    <p className="text-xs text-gray-500 uppercase tracking-widest font-mono mb-1">Email kontaktowy</p>
+                                    <a href="mailto:rdomagalski@argo-system.pl" className="text-xl font-medium group-hover:text-blue-400 transition-colors block break-all">
+                                        rdomagalski@argo-system.pl
+                                    </a>
+                                </div>
+                            </div>
 
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-					{/* Formularz kontaktowy */}
-					<div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8">
-						<h3 className="text-2xl font-bold font-montserrat text-gray-900 mb-6">Wyślij zapytanie</h3>
+                            {/* Obszar Działania (Zamiast Adresu) */}
+                            <div className="flex items-start gap-4 group">
+                                <div className="p-4 bg-white/5 rounded-full border border-white/10 group-hover:border-blue-500/50 transition-colors">
+                                    <Globe className="w-6 h-6 text-gray-300 group-hover:text-blue-400" />
+                                </div>
+                                <div>
+                                    <p className="text-xs text-gray-500 uppercase tracking-widest font-mono mb-1">Obszar Działania</p>
+                                    <p className="text-xl font-medium">
+                                        Cała Polska <br />
+                                        <span className="text-sm text-gray-400 font-light">Baza operacyjna: Śląsk</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-						<form onSubmit={handleSubmit} className="space-y-6">
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-								<div>
-									<label htmlFor="name" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
-										Imię i nazwisko *
-									</label>
-									<input
-										type="text"
-										id="name"
-										name="name"
-										value={formData.name}
-										onChange={handleChange}
-										required
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors font-inter"
-										placeholder="Jan Kowalski"
-									/>
-								</div>
+                    {/* PRAWA STRONA: Formularz (The Terminal) */}
+                    <div className="bg-[#080808] p-8 md:p-10 rounded-3xl border border-white/10 relative shadow-2xl shadow-black">
+                        {/* Decorative HUD corners */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-600/30 rounded-tl-2xl" />
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-600/30 rounded-br-2xl" />
 
-								<div>
-									<label htmlFor="email" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
-										Email *
-									</label>
-									<input
-										type="email"
-										id="email"
-										name="email"
-										value={formData.email}
-										onChange={handleChange}
-										required
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors font-inter"
-										placeholder="jan@example.com"
-									/>
-								</div>
-							</div>
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-xs font-mono text-gray-500 uppercase ml-1">Imię i Nazwisko *</label>
+                                    <input 
+                                        type="text" 
+                                        required
+                                        className="tech-input w-full px-4 py-4 rounded-lg bg-transparent"
+                                        placeholder="Jan Kowalski"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-xs font-mono text-gray-500 uppercase ml-1">Firma</label>
+                                    <input 
+                                        type="text" 
+                                        className="tech-input w-full px-4 py-4 rounded-lg bg-transparent"
+                                        placeholder="Nazwa Firmy"
+                                    />
+                                </div>
+                            </div>
 
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-								<div>
-									<label htmlFor="phone" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
-										Telefon
-									</label>
-									<input
-										type="tel"
-										id="phone"
-										name="phone"
-										value={formData.phone}
-										onChange={handleChange}
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-										placeholder="+48 123 456 789"
-									/>
-								</div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-mono text-gray-500 uppercase ml-1">Email służbowy *</label>
+                                <input 
+                                    type="email" 
+                                    required
+                                    className="tech-input w-full px-4 py-4 rounded-lg bg-transparent"
+                                    placeholder="email@firma.pl"
+                                />
+                            </div>
 
-								<div>
-									<label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
-										Firma
-									</label>
-									<input
-										type="text"
-										id="company"
-										name="company"
-										value={formData.company}
-										onChange={handleChange}
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-										placeholder="Nazwa firmy"
-									/>
-								</div>
-							</div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-mono text-gray-500 uppercase ml-1">Szczegóły zgłoszenia *</label>
+                                <textarea 
+                                    rows="4"
+                                    required
+                                    className="tech-input w-full px-4 py-4 rounded-lg bg-transparent resize-none"
+                                    placeholder="Opisz zakres potrzebnych usług..."
+                                ></textarea>
+                            </div>
 
-							<div>
-								<label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-2">
-									Interesująca usługa
-								</label>
-								<select
-									id="service"
-									name="service"
-									value={formData.service}
-									onChange={handleChange}
-									className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-									<option value="">Wybierz usługę</option>
-									{services.map((service, index) => (
-										<option key={index} value={service}>
-											{service}
-										</option>
-									))}
-								</select>
-							</div>
+                            <button 
+                                type="submit" 
+                                disabled={isSubmitting}
+                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-xl transition-all flex items-center justify-center gap-3 group relative overflow-hidden"
+                            >
+                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                                <span className="relative z-10">{isSubmitting ? 'Przetwarzanie...' : 'Wyślij Zgłoszenie'}</span>
+                                {!isSubmitting && <Send className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />}
+                            </button>
+                            
+                            <p className="text-center text-xs text-gray-600 font-mono mt-4">
+                                DANE SZYFROWANE SSL • RODO COMPLIANT
+                            </p>
+                        </form>
+                    </div>
+                </div>
 
-							<div>
-								<label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-									Wiadomość *
-								</label>
-								<textarea
-									id="message"
-									name="message"
-									value={formData.message}
-									onChange={handleChange}
-									required
-									rows={5}
-									className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-									placeholder="Opisz swoje potrzeby i oczekiwania..."
-								/>
-							</div>
+                {/* --- STOPKA WŁAŚCIWA (BOTTOM) --- */}
+                <div className="border-t border-white/10 pt-16 pb-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                        {/* Kolumna 1 */}
+                        <div className="flex flex-col gap-4">
+                            <h4 className="text-white font-bold mb-2">Menu</h4>
+                            {['O Firmie', 'Usługi', 'Realizacje', 'Kariera'].map(item => (
+                                <a key={item} href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm flex items-center gap-2 group">
+                                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    {item}
+                                </a>
+                            ))}
+                        </div>
+                        {/* Kolumna 2 */}
+                        <div className="flex flex-col gap-4">
+                            <h4 className="text-white font-bold mb-2">Usługi</h4>
+                            {['Facility Management', 'Maintenance', 'Audyty', 'Pomiary'].map(item => (
+                                <a key={item} href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">{item}</a>
+                            ))}
+                        </div>
+                        {/* Kolumna 3 */}
+                        <div className="flex flex-col gap-4">
+                            <h4 className="text-white font-bold mb-2">Legal</h4>
+                            {['Polityka Prywatności', 'Regulamin', 'Cookies', 'RODO'].map(item => (
+                                <a key={item} href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">{item}</a>
+                            ))}
+                        </div>
+                        {/* Kolumna 4 (Socials) */}
+                        <div className="flex flex-col gap-4">
+                            <h4 className="text-white font-bold mb-2">Social Media</h4>
+                            <div className="flex gap-4">
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-colors text-white border border-white/10"><Linkedin className="w-4 h-4"/></a>
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-colors text-white border border-white/10"><Facebook className="w-4 h-4"/></a>
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-colors text-white border border-white/10"><Instagram className="w-4 h-4"/></a>
+                            </div>
+                        </div>
+                    </div>
 
-							<button
-								type="submit"
-								className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
-								Wyślij zapytanie
-							</button>
-						</form>
-					</div>
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 pt-8">
+                        <p className="text-gray-600 text-sm font-mono">
+                            © 2025 ARGO SYSTEM. Wszelkie prawa zastrzeżone.
+                        </p>
+                        <p className="text-gray-600 text-xs font-mono uppercase tracking-widest">
+                            Designed and developed by AppLike
+                        </p>
+                    </div>
+                </div>
 
-					{/* Informacje kontaktowe */}
-					<div className="space-y-8">
-						<div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8">
-							<h3 className="text-2xl font-bold text-gray-900 mb-6">Dane kontaktowe</h3>
+            </div>
 
-							<div className="space-y-6">
-								{contactInfo.map((info, index) => (
-									<div key={index} className="flex items-start space-x-4">
-										<div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
-											{info.icon}
-										</div>
-										<div>
-											<h4 className="font-semibold text-gray-900 mb-1">{info.label}</h4>
-											{info.href !== '#' ? (
-												<a
-													href={info.href}
-													className="text-gray-600 hover:text-blue-600 transition-colors whitespace-pre-line">
-													{info.value}
-												</a>
-											) : (
-												<p className="text-gray-600 whitespace-pre-line">{info.value}</p>
-											)}
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-
-						{/* Dodatkowe informacje */}
-						<div className="bg-blue-600 rounded-3xl shadow-xl p-8 text-white">
-							<h3 className="text-2xl font-bold mb-4">Dlaczego warto nas wybrać?</h3>
-							<ul className="space-y-3">
-								<li className="flex items-center space-x-3">
-									<svg className="w-5 h-5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-									</svg>
-									<span>Ponad 15 lat doświadczenia</span>
-								</li>
-								<li className="flex items-center space-x-3">
-									<svg className="w-5 h-5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-									</svg>
-									<span>Certyfikowani specjaliści</span>
-								</li>
-								<li className="flex items-center space-x-3">
-									<svg className="w-5 h-5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-									</svg>
-									<span>24/7 wsparcie techniczne</span>
-								</li>
-								<li className="flex items-center space-x-3">
-									<svg className="w-5 h-5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-									</svg>
-									<span>Gwarancja na wszystkie usługi</span>
-								</li>
-								<li className="flex items-center space-x-3">
-									<svg className="w-5 h-5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-									</svg>
-									<span>Bezpłatna wycena i konsultacja</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	)
+            {/* OGROMNY TEKST W TLE */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 giant-text z-0">
+                ARGO
+            </div>
+        </footer>
+    )
 }
 
-export default ContactSection
+export default ContactFooter

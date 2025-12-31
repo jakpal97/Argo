@@ -1,217 +1,180 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import {
-	Shield,
-	Zap,
-	Users,
-	Award,
-	ArrowRight,
-	CheckCircle2,
-	Sparkles,
-	Target,
-	Eye,
-	Heart,
-	Star,
-	Play,
-	ChevronDown,
-	Quote,
-	Briefcase,
-	Clock,
-	Globe,
+    Shield,
+    Zap,
+    Users,
+    ArrowRight,
+    CheckCircle2,
+    Activity,
+    Settings,
+    BarChart3
 } from 'lucide-react'
 
 const AboutSection = () => {
-	const [activeSection, setActiveSection] = useState(0)
-	const [isVisible, setIsVisible] = useState(false)
-	const sectionRef = useRef(null)
+    
+    // Dane usług zaktualizowane o techniczny opis
+    const services = [
+        {
+            id: '01',
+            icon: <Shield className="w-6 h-6" />,
+            title: 'Systemy Bezpieczeństwa',
+            desc: 'Zaawansowana integracja CCTV, SSWiN oraz kontroli dostępu. Projektowanie zgodne z normami ISO.',
+            features: ['Monitoring IP', 'Biometria', 'PPOŻ'],
+           
+        },
+        {
+            id: '02',
+            icon: <Activity className="w-6 h-6" />,
+            title: 'Diagnostyka Techniczna',
+            desc: 'Prewencyjne utrzymanie ruchu. Analiza wibroakustyczna i termowizyjna parków maszynowych.',
+            features: ['Termowizja', 'Audyty Energetyczne', 'Raportowanie'],
+            
+        },
+        {
+            id: '03',
+            icon: <Settings className="w-6 h-6" />,
+            title: 'Maintenance & Serwis',
+            desc: 'Kompleksowy FM outsourcing. Gwarantowany czas reakcji SLA i dostępność części zamiennych.',
+            features: ['SLA < 4h', 'Części OEM', 'Modernizacje'],
+           
+        },
+    ]
 
-	useEffect(() => {
-		setIsVisible(true)
+    const stats = [
+        { val: '15+', label: 'Lat Doświadczenia' },
+        { val: '2.5k', label: 'Projektów' },
+        { val: '98%', label: 'Efektywność' },
+        { val: '24/7', label: 'Wsparcie' },
+    ]
 
-		const interval = setInterval(() => {
-			setActiveSection(prev => (prev + 1) % 3)
-		}, 5000)
+    return (
+        <section className="relative bg-transparent py-24 px-4 sm:px-6 lg:px-8 font-sans overflow-hidden">
+            
+            {/* Global Styles for this section */}
+            <style jsx>{`
+                .tech-card {
+                    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+                    border: 1px solid rgba(255,255,255,0.05);
+                    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+                .tech-card:hover {
+                    border-color: rgba(59, 130, 246, 0.5); /* Blue-500 */
+                    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+                    transform: translateY(-5px);
+                }
+                /* Animacja paska (Marquee) */
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-scroll {
+                    animation: scroll 30s linear infinite;
+                }
+            `}</style>
 
-		return () => {
-			clearInterval(interval)
-		}
-	}, [])
+            {/* --- DECORATIVE BACKGROUND --- */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-900/50 to-transparent" />
+            
+            {/* Infinite Text Marquee (Tło) */}
+            <div className="absolute top-10 left-0 w-full overflow-hidden opacity-[0.03] pointer-events-none select-none">
+                <div className="flex whitespace-nowrap animate-scroll">
+                    <span className="text-[120px] font-black font-mono mx-8">FACILITY MANAGEMENT</span>
+                    <span className="text-[120px] font-black font-mono mx-8">TECHNICAL SUPPORT</span>
+                    <span className="text-[120px] font-black font-mono mx-8">ENGINEERING</span>
+                    {/* Powtórzenie dla płynności */}
+                    <span className="text-[120px] font-black font-mono mx-8">FACILITY MANAGEMENT</span>
+                    <span className="text-[120px] font-black font-mono mx-8">TECHNICAL SUPPORT</span>
+                    <span className="text-[120px] font-black font-mono mx-8">ENGINEERING</span>
+                </div>
+            </div>
 
-	const services = [
-		{
-			icon: <Shield className="w-7 h-7" />,
-			title: 'Instalacje Systemów Bezpieczeństwa',
-			description:
-				'Projektowanie i instalacja zaawansowanych systemów bezpieczeństwa z wykorzystaniem najnowszych technologii i standardów branżowych.',
-			features: ['Systemy CCTV', 'Kontrola dostępu', 'Sygnalizacja pożaru', 'Systemy alarmowe'],
-			color: 'from-blue-600 via-blue-700 to-blue-800',
-			accent: 'from-blue-400 to-cyan-300',
-		},
-		{
-			icon: <Zap className="w-7 h-7" />,
-			title: 'Przeglądy Techniczne',
-			description:
-				'Kompleksowe przeglądy i audyty techniczne przeprowadzane przez certyfikowanych specjalistów zgodnie z obowiązującymi normami.',
-			features: ['Audyty bezpieczeństwa', 'Certyfikacja', 'Dokumentacja', 'Raporty techniczne'],
-			color: 'from-blue-700 via-blue-800 to-blue-900',
-			accent: 'from-purple-400 to-blue-300',
-		},
-		{
-			icon: <Users className="w-7 h-7" />,
-			title: 'Serwis i Naprawy',
-			description:
-				'Profesjonalna obsługa serwisowa z gwarancją szybkiej reakcji i wysokiej jakości wykonanych usług naprawczych.',
-			features: ['Serwis 24/7', 'Części zamienne', 'Modernizacje', 'Wsparcie techniczne'],
-			color: 'blue',
-		},
-	]
+            <div className="max-w-[1600px] mx-auto relative z-10">
+                
+                {/* --- TOP: MISSION STATEMENT --- */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 items-end">
+                    <div>
+                        <div className="flex items-center gap-2 mb-6">
+                            <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+                            <span className="font-mono text-blue-400 text-xs tracking-widest uppercase">System Overview</span>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none mb-6">
+                            Twoja infrastruktura <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">pod pełną kontrolą.</span>
+                        </h2>
+                    </div>
+                    <div>
+                        <p className="text-gray-400 text-lg font-light leading-relaxed border-l border-white/10 pl-6">
+                            Dostarczamy profesjonalne rozwiązania w zakresie maintenance i obsługi technicznej. 
+                            Gwarantujemy bezpieczeństwo, niezawodność i pełną kontrolę nad każdym systemem technicznym Twojego obiektu.
+                        </p>
+                        
+                        {/* Stats Row */}
+                        <div className="flex flex-wrap gap-8 mt-8 pl-6">
+                            {stats.map((stat, i) => (
+                                <div key={i}>
+                                    <div className="text-2xl font-bold text-white font-mono">{stat.val}</div>
+                                    <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
 
-	const stats = [
-		{
-			number: '15',
-			label: 'Lat doświadczenia w facility management',
-			icon: <Award className="w-5 h-5" />,
-			suffix: '+',
-		},
-		{
-			number: '2500',
-			label: 'Zrealizowanych projektów w obsłudze technicznej obiektów',
-			icon: <Target className="w-5 h-5" />,
-			suffix: '+',
-		},
-		{
-			number: '98',
-			label: 'Zadowolonych klientów dzięki skutecznej diagnostyce technicznej',
-			icon: <Heart className="w-5 h-5" />,
-			suffix: '%',
-		},
-		{
-			number: '24',
-			label: 'Wsparcie techniczne i serwis maszyn i urządzeń',
-			icon: <Clock className="w-5 h-5" />,
-			suffix: '/7',
-		},
-	]
+                {/* --- BOTTOM: SERVICES GRID --- */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {services.map((service, index) => (
+                        <div key={index} className="group tech-card rounded-xl p-8 relative overflow-hidden flex flex-col justify-between h-[400px]">
+                            
+                            {/* Header */}
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="p-3 bg-white/5 rounded-lg text-blue-400 group-hover:text-white group-hover:bg-blue-600 transition-colors duration-300">
+                                    {service.icon}
+                                </div>
+                                <span className="font-mono text-2xl text-white/10 font-bold group-hover:text-white/20 transition-colors">
+                                    {service.id}
+                                </span>
+                            </div>
 
-	const features = [
-		{
-			title: 'Doświadczenie i Profesjonalizm',
-			description:
-				'Nasz zespół składa się z wykwalifikowanych techników i inżynierów z wieloletnim doświadczeniem w branży bezpieczeństwa.',
-			icon: <Briefcase className="w-6 h-6" />,
-		},
-		{
-			title: 'Bezpieczeństwo na Pierwszym Miejscu',
-			description:
-				'Wszystkie nasze usługi są projektowane z myślą o zapewnieniu najwyższego poziomu bezpieczeństwa i ochrony.',
-			icon: <Shield className="w-6 h-6" />,
-		},
-		{
-			title: 'Indywidualne Podejście',
-			description:
-				'Każdy projekt traktujemy indywidualnie, dostosowując rozwiązania do specyficznych potrzeb i wymagań klienta.',
-			icon: <Globe className="w-6 h-6" />,
-		},
-	]
+                            {/* Content */}
+                            <div>
+                                <h3 className="text-2xl text-white font-medium mb-3 group-hover:translate-x-1 transition-transform">
+                                    {service.title}
+                                </h3>
+                                <p className="text-gray-400 text-sm leading-relaxed mb-6 group-hover:text-gray-300">
+                                    {service.desc}
+                                </p>
+                                
+                                {/* Feature List */}
+                                <ul className="space-y-2 mb-6">
+                                    {service.features.map((feat, fIdx) => (
+                                        <li key={fIdx} className="flex items-center gap-2 text-xs text-gray-500 font-mono group-hover:text-blue-200/70">
+                                            <span className="w-1 h-1 bg-blue-500 rounded-full" />
+                                            {feat}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
-	return (
-		<div className="relative min-h-screen bg-white overflow-hidden" id="about">
-			<div className="relative z-10 max-w-7xl mx-auto px-8 pt-24" ref={sectionRef}>
-				{/* Elegant Main Content */}
-				<div className="grid lg:grid-cols-5 gap-16 mb-32">
-					{/* Left Column - Refined Image & Story */}
-					<div className="lg:col-span-2 space-y-12">
-						<div className="relative group">
-							<div className="absolute -inset-4  rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-0 group-hover:opacity-100"></div>
-							<div className="relative bg-white/70 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-white/40 transition-all duration-700">
-								<img
-									src="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800"
-									alt="Zespół ARGO"
-									className="w-full h-72 object-cover rounded-2xl mb-8 group-hover:scale-[1.02] transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-								/>
-								<div className="space-y-6">
-									<h3 className="text-2xl font-light font-montserrat text-black tracking-wide">Nasza Misja</h3>
-									<p className="text-black leading-relaxed font-light font-inter">
-										Dostarczamy profesjonalne rozwiązania w zakresie maintenance, FM outsourcingu i obsługi technicznej
-										obiektów, zapewniając najwyższe standardy bezpieczeństwa i efektywności, dostosowane do potrzeb
-										każdego klienta.
-									</p>
-								</div>
-							</div>
-						</div>
+                            {/* Footer / Action */}
+                            <div className="pt-6 border-t border-white/5 flex items-center justify-between mt-auto">
+                                <span className="text-[10px] font-mono text-blue-400 uppercase tracking-widest border border-blue-500/20 px-2 py-1 rounded">
+                                    {service.highlight}
+                                </span>
+                                
+                            </div>
 
-						{/* Refined Stats */}
-						<div className="grid grid-cols-2 gap-6">
-							{stats.map((stat, index) => (
-								<div
-									key={index}
-									className="group bg-white/60 backdrop-blur-xl p-8 rounded-2xl shadow-lg border border-white/30 hover:shadow-2xl hover:scale-105 transition-all duration-500"
-									style={{ animationDelay: `${index * 150}ms` }}>
-									<div className="flex flex-col items-center text-center space-y-3">
-										<div className="text-white group-hover:scale-110 transition-transform duration-500 p-3 bg-blue-600 rounded-full">
-											{stat.icon}
-										</div>
-										<div className="text-3xl font-light font-montserrat text-black">
-											{stat.number}
-											<span className="text-blue-600">{stat.suffix}</span>
-										</div>
-										<p className="text-sm text-black font-light font-inter leading-tight">{stat.label}</p>
-									</div>
-								</div>
-							))}
-						</div>
-					</div>
+                            {/* Decorative Tech Corners */}
+                            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-white/10 group-hover:border-blue-500/50 transition-colors" />
+                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-white/10 group-hover:border-blue-500/50 transition-colors" />
 
-					{/* Right Column - Elegant Services */}
-					<div className="lg:col-span-3 space-y-8">
-						<div className="">
-							<h2 className="text-5xl font-bold font-montserrat text-black mb-6 tracking-wide">O firmie</h2>
-							<div className="w-16 h-px bg-gradient-to-r from-blue-400 to-transparent mb-8"></div>
-							<p className="text-black leading-relaxed font-light font-inter text-lg">
-								ARGO System to ekspert w obsłudze technicznej obiektów i facility management, zapewniający kompleksową
-								obsługę obiektów oraz pełną diagnostykę techniczną instalacji przemysłowych. Dzięki doświadczeniu w
-								maintenance budynków komercyjnych i przemysłowych, gwarantujemy bezpieczeństwo, niezawodność i pełną
-								kontrolę nad każdym systemem technicznym.
-							</p>
-						</div>
+                        </div>
+                    ))}
+                </div>
 
-						{services.map((service, index) => (
-							<div
-								key={index}
-								className="group relative bg-white/50 backdrop-blur-xl p-8 rounded-3xl shadow-lg border border-white/30 hover:shadow-2xl transition-all duration-700 cursor-pointer transform hover:-translate-y-1"
-								style={{ animationDelay: `${index * 200}ms` }}>
-								<div
-									className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-700`}></div>
-
-								<div className="relative z-10">
-									<div className="flex items-start gap-6 mb-6">
-										<div className="p-4 rounded-2xl bg-blue-600 text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
-											{service.icon}
-										</div>
-										<div className="flex-1">
-											<h3 className="text-2xl font-light font-montserrat text-black mb-3 group-hover:text-blue-900 transition-colors duration-500 tracking-wide">
-												{service.title}
-											</h3>
-											<p className="text-black leading-relaxed font-light font-inter mb-6">{service.description}</p>
-
-											<div className="grid grid-cols-2 gap-3 mb-6">
-												{service.features.map((feature, idx) => (
-													<div key={idx} className="flex items-center gap-2 text-sm text-black">
-														<div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-														<span className="font-light font-inter">{feature}</span>
-													</div>
-												))}
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</div>
-		</div>
-	)
+            </div>
+        </section>
+    )
 }
 
 export default AboutSection

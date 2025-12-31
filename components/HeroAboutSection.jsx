@@ -1,75 +1,178 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
-import { ArrowRight, Quote } from 'lucide-react'
+import { ArrowRight, Quote, CheckCircle2, Zap } from 'lucide-react'
 
 const HeroAboutSection = () => {
 	const [isVisible, setIsVisible] = useState(false)
 	const sectionRef = useRef(null)
 
 	useEffect(() => {
-		setIsVisible(true)
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setIsVisible(true)
+				}
+			},
+			{ threshold: 0.1 }
+		)
+		if (sectionRef.current) observer.observe(sectionRef.current)
+		return () => observer.disconnect()
 	}, [])
 
 	return (
-		<div
-			id="whyUs"
-			className="relative overflow-hidden mx-2 sm:mx-4 md:mx-5 mb-5 mt-10 rounded-2xl min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
-			{/* Video Background */}
-			<div className="absolute inset-0 w-full h-full">
-				<video
-					autoPlay
-					muted
-					loop
-					playsInline
-					preload="none"
-					className="absolute inset-0 w-full h-full object-cover"
-					crossOrigin="anonymous">
-					<source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
-				</video>
-				{/* Dark overlay for better text readability */}
-				<div className="absolute inset-0 bg-black/50"></div>
-			</div>
+		<section id="whyUs" className="relative bg-transparent py-20 px-4 sm:px-6 lg:px-8 font-sans " ref={sectionRef}>
+			{/* Globalne style dla tej sekcji */}
+			<style jsx>{`
+				.glass-card {
+					background: rgba(255, 255, 255, 0.03);
+					backdrop-filter: blur(20px);
+					-webkit-backdrop-filter: blur(20px);
+					border: 1px solid rgba(255, 255, 255, 0.08);
+				}
+				.tech-border {
+					position: relative;
+				}
+				/* Narożniki techniczne */
+				.tech-border::before,
+				.tech-border::after {
+					content: '';
+					position: absolute;
+					width: 10px;
+					height: 10px;
+					border: 1px solid rgba(255, 255, 255, 0.4);
+					transition: all 0.3s ease;
+				}
+				.tech-border::before {
+					top: -1px;
+					left: -1px;
+					border-right: 0;
+					border-bottom: 0;
+				}
+				.tech-border::after {
+					bottom: -1px;
+					right: -1px;
+					border-left: 0;
+					border-top: 0;
+				}
 
-			<div
-				className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-24"
-				ref={sectionRef}>
-				{/* Elegant Hero Section */}
+				.hover-glow:hover {
+					box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+					border-color: rgba(37, 99, 235, 0.3);
+				}
+			`}</style>
+
+			<div className="max-w-[1600px] mx-auto">
+				{/* --- HEADER --- */}
 				<div
-					className={`text-center  transform transition-all duration-1500 ${
-						isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+					className={`mb-16 transition-all duration-1000 ${
+						isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
 					}`}>
-					<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light font-montserrat mb-4 sm:mb-6 md:mb-8 tracking-tight leading-none">
-						<span className="text-white">Dlaczego</span>
-						<br />
-						<span className="text-white font-extralight">warto wybrać ARGO?</span>
-					</h1>
+					<h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+						Inżynieria{' '}
+						<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+							Niezawodności.
+						</span>
+					</h2>
+				</div>
 
-					<div className="max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16">
-						<p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed font-light font-inter mb-6 sm:mb-8">
-							Jako lider w facility management i obsłudze technicznej obiektów, dbamy o bezawaryjne funkcjonowanie
-							budynków i instalacji. Nasze usługi obejmują diagnostykę techniczną, maintenance maszyn i urządzeń oraz
-							tworzenie kompletnej dokumentacji technicznej, aby zapewnić maksymalne bezpieczeństwo i efektywność Twojej
-							infrastruktury.
-						</p>
+				{/* --- BENTO GRID LAYOUT --- */}
+				<div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+					{/* 1. BIG CARD (TEXT) - Spans 7 columns */}
+					<div
+						className={`md:col-span-7 relative group overflow-hidden rounded-3xl glass-card p-8 md:p-12 tech-border hover-glow transition-all duration-700 ${
+							isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 delay-100'
+						}`}>
+						{/* Tło wideo przyciemnione */}
+						<div className="absolute inset-0 z-0">
+							<video
+								autoPlay
+								muted
+								loop
+								playsInline
+								className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-700">
+								<source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
+							</video>
+							<div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+						</div>
 
-						<div className="w-16 sm:w-20 md:w-24 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto mb-8 sm:mb-10 md:mb-12"></div>
+						<div className="relative z-10 h-full flex flex-col justify-between">
+							<div>
+								<h3 className="text-2xl md:text-3xl text-white font-light mb-6">
+									Twoje wsparcie techniczne <br />
+									<b className="font-bold">na Śląsku i w Polsce</b>
+								</h3>
+								<p className="text-gray-300 text-lg leading-relaxed max-w-2xl font-light">
+									Operujemy z serca przemysłowego Śląska. Dzięki strategicznej lokalizacji zapewniamy błyskawiczny czas
+									reakcji (SLA) w miastach takich jak
+									<span className="text-blue-400"> Katowice, Gliwice, Zabrze, Bytom</span>. Nasze mobilne zespoły
+									serwisowe realizują również kontrakty sieciowe na terenie całego kraju.
+								</p>
+							</div>
 
-						<Quote className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white/70 mx-auto mb-4 sm:mb-6" />
-						<p className="text-sm sm:text-base md:text-lg text-white/80 italic font-light font-inter max-w-2xl mx-auto">
-							&quot;Profesjonalna obsługa techniczna obiektów to nasza specjalność, a spokój klienta — nasz
-							priorytet.&quot;
-						</p>
+							<div className="mt-12 flex flex-wrap gap-4">
+								<div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+									<CheckCircle2 className="w-4 h-4 text-blue-400" />
+									<span className="text-sm text-white/80 font-mono">Pełne bezpieczeństwo</span>
+								</div>
+								<div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+									<CheckCircle2 className="w-4 h-4 text-blue-400" />
+									<span className="text-sm text-white/80 font-mono">Efektywność infrastruktury</span>
+								</div>
+							</div>
+						</div>
 					</div>
 
-					<div className="flex justify-center">
-						<button className="group flex items-center gap-2 sm:gap-3 text-white hover:text-blue-300 transition-colors duration-500 text-sm sm:text-base md:text-lg font-light font-inter">
-							<span>Skontaktuj się z nami</span>
-							<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-500" />
-						</button>
+					{/* 2. QUOTE CARD (DARK) - Spans 5 columns */}
+					<div
+						className={`md:col-span-5 flex flex-col justify-center relative rounded-3xl bg-[#0a0a0a] border border-white/10 p-8 md:p-12 tech-border hover:border-blue-500/30 transition-all duration-700 ${
+							isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 delay-200'
+						}`}>
+						<Quote className="w-12 h-12 text-blue-500 mb-6 opacity-50" />
+						<blockquote className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-6">
+							"Profesjonalna obsługa techniczna obiektów to nasza specjalność, a spokój klienta — nasz priorytet."
+						</blockquote>
+						<div className="flex items-center gap-4 mt-auto">
+							<div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xs">
+								A
+							</div>
+							<div>
+								<div className="text-white text-sm font-bold">ZESPÓŁ ARGO</div>
+								<div className="text-gray-500 text-xs font-mono uppercase">Technical Support</div>
+							</div>
+						</div>
+					</div>
+
+					{/* 3. CTA CARD (BOTTOM) - Spans 12 columns (full width) */}
+					<div
+						className={`md:col-span-12 relative overflow-hidden rounded-2xl bg-blue-600 p-1 transition-all duration-700 group cursor-pointer ${
+							isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 delay-300'
+						}`}>
+						<div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-100 group-hover:opacity-90 transition-opacity" />
+
+						<div className="relative bg-black rounded-xl px-6 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6 group-hover:bg-black/90 transition-colors">
+							<div className="flex items-center gap-6">
+								<div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform duration-300">
+									<Zap className="w-6 h-6" />
+								</div>
+								<div>
+									<h4 className="text-white text-xl font-bold">Gotowy na współpracę?</h4>
+									<p className="text-gray-400 text-sm md:text-base">
+										Skontaktuj się z nami i poznaj szczegóły oferty maintenance.
+									</p>
+								</div>
+							</div>
+
+							<button
+								className="flex items-center gap-3 px-8 py-4 bg-white text-black rounded-lg font-bold font-mono text-sm uppercase tracking-wide hover:bg-blue-50 transition-colors cursor-pointer"
+								onClick={() => (window.location.href = '/kontakt')}>
+								Skontaktuj się
+								<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 
