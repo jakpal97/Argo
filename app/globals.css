@@ -1,32 +1,50 @@
 @import 'tailwindcss';
 
+html {
+	scroll-behavior: smooth;
+}
+
 :root {
-  --background: #050505;
-  --foreground: #ffffff;
+	--background: #ffffff; /* zawsze białe tło */
+	--foreground: #0f172a;
 }
 
-/* Jeśli używasz Tailwind v3, usuń @theme inline jeśli powoduje błędy */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-inter);
+	--font-mono: var(--font-montserrat);
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #050505; /* Wymuszamy czerń na start */
-  color: #ffffff;
-  scroll-behavior: smooth;
-  font-family: var(--font-inter), system-ui, sans-serif;
+/* Wymuszamy białe tło również w trybie dark */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #ffffff;
+		--foreground: #0f172a;
+	}
 }
 
-/* Twoje efekty */
-.hover-lift { transition: transform 0.3s ease; }
-.hover-lift:hover { transform: translateY(-5px); }
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
 
-.glass-panel {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* Usunięte animacje dla maksymalnej wydajności */
+
+/* Proste hover efekty */
+.hover-lift {
+	transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+	transform: translateY(-4px);
+}
+
+.hover-glow {
+	transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+	box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }

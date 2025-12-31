@@ -18,6 +18,9 @@ const nextConfig = {
 	// Optymalizacja JavaScript
 	swcMinify: true,
 
+	// Konfiguracja Turbopack - pusty config wymusza użycie webpack
+	turbopack: {},
+
 	// Optymalizacja bundle
 	webpack: (config, { dev, isServer }) => {
 		if (!dev && !isServer) {
