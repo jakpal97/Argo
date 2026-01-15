@@ -14,6 +14,15 @@ const inter = Inter({
 
 export const metadata = {
 	metadataBase: new URL('https://argo-system.pl'),
+	icons: {
+		icon: [
+			{ url: '/logobez.png', type: 'image/png' },
+		],
+		apple: [
+			{ url: '/logobez.png', sizes: '180x180', type: 'image/png' },
+		],
+		shortcut: '/logobez.png',
+	},
 	title: {
 		default: 'ARGO System | Facility Management & Obsługa Techniczna Nieruchomości',
 		template: '%s | ARGO System',
