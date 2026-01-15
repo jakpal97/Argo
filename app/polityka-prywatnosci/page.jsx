@@ -8,7 +8,7 @@ export default function PrivacyPolicyPage() {
 		{
 			icon: <Database className="w-6 h-6" />,
 			title: '1. Administrator Danych Osobowych',
-			content: `Administratorem Twoich danych osobowych jest ARGO SYSTEM z siedzibą w Warszawie, ul. Przykładowa 123, 00-000 Warszawa, NIP: XXXXXXXXXX, REGON: XXXXXXXXXX.
+			content: `Administratorem Twoich danych osobowych jest ARGO SYSTEM z siedzibą w Bytom, ul. Stanisława Moniuszki 22 / 403, 41-902 Bytom, NIP: 6263023958, REGON:366086995.
 
 Kontakt z administratorem możliwy jest pod adresem e-mail: rodo@argo-system.pl lub listownie na adres siedziby firmy.`,
 		},
@@ -120,30 +120,6 @@ Po upływie wskazanych okresów dane są usuwane lub anonimizowane.`,
 							</div>
 						</div>
 					))}
-				</div>
-
-				{/* Cookies Section */}
-				<div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white">
-					<h2 className="text-2xl font-bold font-montserrat mb-4">7. Pliki Cookies</h2>
-					<div className="font-inter leading-relaxed space-y-4">
-						<p>
-							Nasza strona wykorzystuje pliki cookies w celu zapewnienia prawidłowego działania serwisu oraz analizy
-							ruchu.
-						</p>
-						<div className="grid md:grid-cols-2 gap-6 mt-6">
-							<div className="bg-white/10 rounded-xl p-4">
-								<h3 className="font-bold mb-2">Cookies niezbędne</h3>
-								<p className="text-sm text-blue-100">Wymagane do podstawowego funkcjonowania strony. Nie można ich wyłączyć.</p>
-							</div>
-							<div className="bg-white/10 rounded-xl p-4">
-								<h3 className="font-bold mb-2">Cookies analityczne</h3>
-								<p className="text-sm text-blue-100">Pomagają nam zrozumieć, jak użytkownicy korzystają ze strony.</p>
-							</div>
-						</div>
-						<p className="text-sm text-blue-100 mt-4">
-							Możesz zarządzać ustawieniami cookies w swojej przeglądarce internetowej.
-						</p>
-					</div>
 				</div>
 
 				{/* Contact */}

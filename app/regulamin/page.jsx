@@ -10,7 +10,7 @@ export default function TermsPage() {
 			title: '§1. Postanowienia Ogólne',
 			content: `1. Niniejszy Regulamin określa zasady korzystania ze strony internetowej argo-system.pl oraz świadczenia usług przez ARGO SYSTEM.
 
-2. Właścicielem serwisu jest ARGO SYSTEM z siedzibą w Warszawie, ul. Przykładowa 123, 00-000 Warszawa, NIP: XXXXXXXXXX, REGON: XXXXXXXXXX.
+2. Właścicielem serwisu jest ARGO SYSTEM z siedzibą w Bytom, ul. Stanisława Moniuszki 22 / 403, 1-902 Bytom, NIP: 6263023958, REGON: 366086995.
 
 3. Korzystanie ze strony internetowej oznacza akceptację niniejszego Regulaminu.
 

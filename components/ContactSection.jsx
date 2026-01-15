@@ -12,6 +12,7 @@ import {
 	CheckCircle,
 	AlertCircle,
 } from 'lucide-react'
+import Link from 'next/link'
 // Zaimportuj akcję, którą stworzyliśmy w kroku 2
 import { sendContactEmail } from '@/app/lib/actions'
 
@@ -251,11 +252,14 @@ const ContactFooter = () => {
 						</div>
 						<div className="flex flex-col gap-4">
 							<h4 className="text-white font-bold mb-2">Legal</h4>
-							{['Polityka Prywatności', 'Regulamin', 'Cookies', 'RODO'].map(item => (
-								<a key={item} href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-									{item}
-								</a>
-							))}
+							<Link
+								href="/polityka-prywatnosci"
+								className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+								Polityka Prywatności
+							</Link>
+							<Link href="/regulamin" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+								Regulamin
+							</Link>
 						</div>
 						<div className="flex flex-col gap-4">
 							<h4 className="text-white font-bold mb-2">Social Media</h4>
