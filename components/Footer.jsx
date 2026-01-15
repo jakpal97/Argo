@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear()
@@ -76,12 +77,12 @@ const Footer = () => {
 							<div className="text-gray-400 text-sm font-inter">© {currentYear} ARGO. Wszystkie prawa zastrzeżone.</div>
 							<div className="mt-4 md:mt-0">
 								<div className="flex space-x-6 text-sm">
-									<a href="#" className="text-gray-400 font-inter hover:text-white transition-colors duration-200">
+									<Link href="/polityka-prywatnosci" className="text-gray-400 font-inter hover:text-white transition-colors duration-200">
 										Polityka prywatności
-									</a>
-									<a href="#" className="text-gray-400 font-inter hover:text-white transition-colors duration-200">
+									</Link>
+									<Link href="/regulamin" className="text-gray-400 font-inter hover:text-white transition-colors duration-200">
 										Regulamin
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>

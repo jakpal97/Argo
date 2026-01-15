@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { CheckCircle2, ArrowRight, ChevronDown, Activity, Cpu, FileText } from 'lucide-react'
+import Link from 'next/link'
 
 const ServiceLayout = ({ data }) => {
     const [activeAccordion, setActiveAccordion] = useState(0)
@@ -99,10 +100,10 @@ const ServiceLayout = ({ data }) => {
                                 Gwarantujemy czas reakcji zgodny z SLA oraz pełną dokumentację powykonawczą.
                             </p>
                             
-                            <a href="#contact" className="flex items-center justify-center gap-3 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 group-hover:scale-[1.02]">
+                            <Link href="/kontakt" className="flex items-center justify-center gap-3 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 group-hover:scale-[1.02]">
                                 Skontaktuj się
                                 <ArrowRight className="w-4 h-4" />
-                            </a>
+                            </Link>
 
                             <div className="mt-8 pt-6 border-t border-white/10 text-center">
                                 <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Dyspozytornia 24/7</p>
