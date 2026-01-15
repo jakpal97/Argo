@@ -4,50 +4,51 @@ import { useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 
 export default function Hero() {
-    // --- STANY MENU I NAVBARA ---
+    // --- STANY ---
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isServicesOpen, setIsServicesOpen] = useState(false)
     const [isNavbarVisible, setIsNavbarVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
     const [isScrolled, setIsScrolled] = useState(false)
 
-    // --- STANY INTRO (PRELOADERA) ---
+    // --- STANY INTRO ---
     const [showIntro, setShowIntro] = useState(true) 
     const [startHeroAnimation, setStartHeroAnimation] = useState(false) 
 
-    // 1. LOGIKA INTRO I BLOKADA SCROLLA
+    // 1. LOGIKA INTRO (POPRAWIONA)
     useEffect(() => {
-        // Natychmiastowa blokada scrolla przy starcie
-        if (typeof document !== 'undefined') {
-            document.body.style.overflow = 'hidden'
-            document.documentElement.style.overflow = 'hidden' // Dodatkowe zabezpieczenie dla HTML
-        }
+        // Sprawdź czy użytkownik już był na stronie w tej sesji
+        const hasSeenIntro = typeof window !== 'undefined' ? sessionStorage.getItem('argo_intro_seen') : false
 
-        // Po 2.2 sekundy usuwamy czarny ekran i odblokowujemy scroll
-        const timer1 = setTimeout(() => {
-            setShowIntro(false)
-            // Odblokuj scrolla tylko jeśli menu jest zamknięte
-            if (!isMenuOpen) {
-                document.body.style.overflow = ''
-                document.documentElement.style.overflow = ''
+        if (hasSeenIntro) {
+            // SCENARIUSZ A: Użytkownik wraca (już widział intro)
+            setShowIntro(false)         // Wyłącz intro natychmiast
+            setStartHeroAnimation(true) // Pokaż napisy od razu
+        } else {
+            // SCENARIUSZ B: Pierwsze wejście
+            
+            // ZAPISZ NATYCHMIAST
+            if (typeof window !== 'undefined') {
+                sessionStorage.setItem('argo_intro_seen', 'true')
             }
-        }, 2200)
 
-        // Po 2.5 sekundy odpalamy animację napisów
-        const timer2 = setTimeout(() => {
-            setStartHeroAnimation(true)
-        }, 2500)
+            // Timery animacji
+            const timer1 = setTimeout(() => {
+                setShowIntro(false)
+            }, 2200)
 
-        return () => {
-            clearTimeout(timer1)
-            clearTimeout(timer2)
-            // Cleanup: upewnij się, że scroll jest odblokowany przy odmontowaniu
-            document.body.style.overflow = ''
-            document.documentElement.style.overflow = ''
+            const timer2 = setTimeout(() => {
+                setStartHeroAnimation(true)
+            }, 2500)
+
+            return () => {
+                clearTimeout(timer1)
+                clearTimeout(timer2)
+            }
         }
-    }, []) // Pusta tablica zależności = uruchom tylko raz
+    }, [])
 
-    // 2. LOGIKA NAVBARA (Smart Scroll)
+    // 2. LOGIKA NAVBARA
     useEffect(() => {
         const controlNavbar = () => {
             if (isMenuOpen) return 
@@ -66,23 +67,34 @@ export default function Hero() {
         return () => window.removeEventListener('scroll', controlNavbar)
     }, [lastScrollY, isMenuOpen])
 
-    // Blokowanie scrolla przy otwartym menu (hamburger)
+    // Blokowanie scrolla (JS Fallback)
     useEffect(() => {
-        if (showIntro) return; // Jeśli trwa intro, ignoruj ten efekt (intro ma priorytet)
-
-        if (isMenuOpen) {
+        if (showIntro || isMenuOpen) {
             document.body.style.overflow = 'hidden'
-            setIsNavbarVisible(true)
+            // Dodatkowo blokujemy HTML dla pewności na mobilkach
+            document.documentElement.style.overflow = 'hidden'
         } else {
             document.body.style.overflow = ''
+            document.documentElement.style.overflow = ''
         }
     }, [isMenuOpen, showIntro])
 
     return (
         <section className="relative w-full h-screen overflow-hidden bg-black font-sans text-white">
             
-            {/* Usunąłem zagnieżdżony tag <style jsx>, który powodował błąd */}
-            
+            {/* NAPRAWA BŁĘDU: Używamy zwykłego tagu style z dangerouslySetInnerHTML.
+               To omija kompilator styled-jsx (który wyrzucał błąd nested tag), 
+               ale nadal aplikuje CSS natychmiastowo po renderze.
+            */}
+            {showIntro && (
+                <style dangerouslySetInnerHTML={{__html: `
+                    html, body {
+                        overflow: hidden !important;
+                        height: 100% !important;
+                    }
+                `}} />
+            )}
+
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;600;800&display=swap');
                 .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
@@ -123,7 +135,7 @@ export default function Hero() {
                 }
             `}</style>
 
-            {/* --- INTRO PRELOADER (Czarny ekran z logo) --- */}
+            {/* --- INTRO PRELOADER --- */}
             <div 
                 className={`fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-opacity duration-1000 ease-in-out ${showIntro ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             >
@@ -139,7 +151,6 @@ export default function Hero() {
                 </div>
             </div>
 
-
             {/* --- VIDEO BACKGROUND --- */}
             <div className="absolute inset-0 z-0 bg-black">
                 <video
@@ -151,12 +162,9 @@ export default function Hero() {
                 >
                     <source src="https://ls-bodyshop-portfolio.s3.eu-north-1.amazonaws.com/BG+11.mp4" type="video/mp4" />
                 </video>
-                
-                {/* Gradienty */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent z-10" />
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px] z-10 pointer-events-none opacity-40" />
             </div>
-
 
             {/* --- SMART NAVIGATION --- */}
             <nav 
@@ -195,7 +203,6 @@ export default function Hero() {
                 </div>
             </nav>
 
-
             {/* --- FULL SCREEN MENU OVERLAY --- */}
             <div className={`fixed inset-0 z-[90] bg-[#050505]/95 backdrop-blur-xl transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
                  <div className="h-full w-full flex flex-col justify-center items-center relative">
@@ -224,12 +231,17 @@ export default function Hero() {
                 </div>
             </div>
 
-
             {/* --- HERO CONTENT --- */}
             <div className="relative z-20 w-full h-full flex flex-col justify-end pb-24 px-6 md:px-16 max-w-[1920px] mx-auto pointer-events-none">
                 <div className="pointer-events-auto">
                     
-                   
+                    {/* Badge */}
+                    <div className={`hero-content ${startHeroAnimation ? 'active' : ''} mb-6 flex items-center gap-4`}>
+                        <div className="px-3 py-1 border border-blue-500/50 bg-blue-500/10 text-blue-400 text-[10px] md:text-xs font-mono-tech uppercase tracking-widest rounded-full flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                            System Maintenance & Facility
+                        </div>
+                    </div>
 
                     {/* H1 */}
                     <h1 className={`hero-content delay-1 ${startHeroAnimation ? 'active' : ''} font-inter font-black text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] leading-[0.9] tracking-tight text-white mix-blend-overlay opacity-90 mb-8 max-w-6xl`}>
