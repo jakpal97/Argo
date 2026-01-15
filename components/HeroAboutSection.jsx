@@ -70,7 +70,7 @@ const HeroAboutSection = () => {
 					<h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
 						Inżynieria{' '}
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-							Niezawodności.
+							Niezawodności
 						</span>
 					</h2>
 				</div>

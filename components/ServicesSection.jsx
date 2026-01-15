@@ -41,7 +41,7 @@ const ServicesSection = () => {
                 <div className="mb-20 flex flex-col md:flex-row justify-between items-end gap-8">
                     <div>
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-                            Specyfikacja <span className="text-blue-500">Usług.</span>
+                            Specyfikacja <span className="text-blue-500">Usług</span>
                         </h2>
                         <p className="text-gray-400 max-w-xl text-lg font-light">
                             Wybierz obszar, aby zobaczyć szczegóły techniczne naszych działań operacyjnych.

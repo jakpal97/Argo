@@ -236,18 +236,18 @@ export default function Hero() {
                 <div className="pointer-events-auto">
                     
                     {/* Badge */}
-                    <div className={`hero-content ${startHeroAnimation ? 'active' : ''} mb-6 flex items-center gap-4`}>
+                    {/* <div className={`hero-content ${startHeroAnimation ? 'active' : ''} mb-6 flex items-center gap-4`}>
                         <div className="px-3 py-1 border border-blue-500/50 bg-blue-500/10 text-blue-400 text-[10px] md:text-xs font-mono-tech uppercase tracking-widest rounded-full flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                             System Maintenance & Facility
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* H1 */}
                     <h1 className={`hero-content delay-1 ${startHeroAnimation ? 'active' : ''} font-inter font-black text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] leading-[0.9] tracking-tight text-white mix-blend-overlay opacity-90 mb-8 max-w-6xl`}>
                         OBSŁUGA <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">TECHNICZNA</span> <br />
-                        ŚLĄSK & POLSKA.
+                        ŚLĄSK & POLSKA
                     </h1>
 
                     {/* Content Grid */}

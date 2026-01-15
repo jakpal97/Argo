@@ -83,7 +83,7 @@ const ContactFooter = () => {
 
 						<h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
 							Rozpocznijmy <br />
-							<span className="text-blue-600">współpracę.</span>
+							<span className="text-blue-600">współpracę</span>
 						</h2>
 
 						<p className="text-gray-400 text-lg mb-12 max-w-md font-light leading-relaxed">

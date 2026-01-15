@@ -100,7 +100,7 @@ const AboutSection = () => {
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none mb-6">
                             Twoja infrastruktura <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">pod pełną kontrolą.</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">pod pełną kontrolą</span>
                         </h2>
                     </div>
                     <div>
