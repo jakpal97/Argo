@@ -46,13 +46,10 @@ export default function ContactPage() {
 				{/* --- HEADER --- */}
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-end">
 					<div>
-						<div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-mono uppercase tracking-widest mb-6">
-							<span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" />
-							Direct Access
-						</div>
+						
 						<h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-none">
 							Kontakt <br />
-							<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Techniczny.</span>
+							<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Techniczny</span>
 						</h1>
 					</div>
 					<p className="text-xl text-gray-400 font-light leading-relaxed border-l-2 border-white/10 pl-6 mb-4">
@@ -109,15 +106,7 @@ export default function ContactPage() {
 							</div>
 						</div>
 
-						{/* Dane Rejestrowe */}
-						<div className="pl-6 border-l border-white/10">
-							<h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-4">Dane Firmowe</h4>
-							<div className="text-gray-400 text-sm space-y-1">
-								<p className="text-white font-bold">ARGO SYSTEM</p>
-								<p>ul. Przykładowa 123</p>
-								<p>00-000 Warszawa</p>
-							</div>
-						</div>
+						
 					</div>
 
 					{/* --- PRAWA KOLUMNA: TERMINAL ZGŁOSZENIOWY --- */}
