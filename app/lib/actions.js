@@ -5,30 +5,30 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendContactEmail(formData) {
-  // Pobieramy wszystkie możliwe pola
-  const name = formData.get('name')
-  const email = formData.get('email')
-  const message = formData.get('message')
-  
-  // Pola opcjonalne (mogą być puste w zależności od formularza)
-  const company = formData.get('company') || 'Nie podano'
-  const phone = formData.get('phone') || 'Nie podano'
-  const subject = formData.get('subject') || 'Nowe zgłoszenie ze strony'
+	// Pobieramy wszystkie możliwe pola
+	const name = formData.get('name')
+	const email = formData.get('email')
+	const message = formData.get('message')
 
-  try {
-    const data = await resend.emails.send({
-      // --- TU BYŁA ZMIANA ---
-      // Musi być @kontakt.argo-system.pl, bo taką domenę zweryfikowaliśmy
-      from: 'Formularz Argo <powiadomienia@kontakt.argo-system.pl>', 
-      
-      // Twój mail, na który przyjdzie wiadomość
-      to: ['rdomagalski@argo-system.pl'], 
-      
-      // To pozwala Ci kliknąć "Odpowiedz" i pisać prosto do klienta
-      reply_to: email, 
-      
-      subject: `${subject} - od: ${name}`,
-      text: `
+	// Pola opcjonalne (mogą być puste w zależności od formularza)
+	const company = formData.get('company') || 'Nie podano'
+	const phone = formData.get('phone') || 'Nie podano'
+	const subject = formData.get('subject') || 'Nowe zgłoszenie ze strony'
+
+	try {
+		const data = await resend.emails.send({
+			// --- TU BYŁA ZMIANA ---
+			// Musi być @kontakt.argo-system.pl, bo taką domenę zweryfikowaliśmy
+			from: 'Formularz Argo <powiadomienia@kontakt.argo-system.pl>',
+
+			// Twój mail, na który przyjdzie wiadomość
+			to: ['rdomagalski@argo-system.pl'],
+
+			// To pozwala Ci kliknąć "Odpowiedz" i pisać prosto do klienta
+			reply_to: email,
+
+			subject: `${subject} - od: ${name}`,
+			text: `
         Nowe zgłoszenie:
         ----------------
         Imię i Nazwisko: ${name}
@@ -40,7 +40,7 @@ export async function sendContactEmail(formData) {
         Wiadomość:
         ${message}
       `,
-      html: `
+			html: `
         <div style="font-family: sans-serif; color: #333;">
           <h2 style="color: #020202;">Nowe zgłoszenie: ${subject}</h2>
           <hr style="border: 1px solid #eee; margin: 20px 0;" />
@@ -54,12 +54,12 @@ export async function sendContactEmail(formData) {
             ${message.replace(/\n/g, '<br>')}
           </div>
         </div>
-      `
-    })
+      `,
+		})
 
-    return { success: true, data }
-  } catch (error) {
-    console.error(error)
-    return { success: false, error }
-  }
+		return { success: true, data }
+	} catch (error) {
+		console.error(error)
+		return { success: false, error }
+	}
 }

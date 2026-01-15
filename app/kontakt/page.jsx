@@ -253,32 +253,7 @@ export default function ContactPage() {
 					</div>
 				</div>
 
-				{/* --- SEKCJA LOKALIZACJI (RADAR) --- */}
-				<div className="mt-24">
-					<div
-						className="w-full h-[350px] bg-[#0a0a0a] rounded-3xl border border-white/10 relative overflow-hidden flex items-center justify-center group cursor-pointer"
-						onClick={() => window.open('https://goo.gl/maps/TuWstawLinkDoGoogleMaps')}>
-						{/* Tło Mapy */}
-						<div
-							className="absolute inset-0 opacity-20"
-							style={{
-								backgroundImage: 'radial-gradient(#333 1px, transparent 1px)',
-								backgroundSize: '20px 20px',
-							}}></div>
-
-						<div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-
-						<div className="relative z-10 flex flex-col items-center">
-							<div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center border border-blue-500 shadow-[0_0_30px_rgba(37,99,235,0.5)] backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
-								<MapPin className="w-8 h-8 text-blue-500" />
-							</div>
-							<div className="mt-4 px-4 py-2 bg-black/60 border border-white/10 rounded-full backdrop-blur text-sm text-white font-mono flex items-center gap-2 group-hover:bg-blue-600 group-hover:border-blue-500 transition-colors">
-								<Globe className="w-4 h-4" />
-								Sprawdź dojazd
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	)
