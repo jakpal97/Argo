@@ -1,33 +1,29 @@
-
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ 
+const inter = Inter({
 	subsets: ['latin', 'latin-ext'], // latin-ext dla polskich znaków
 	variable: '--font-inter',
-  })
-  
-  const montserrat = Montserrat({ 
+})
+
+const montserrat = Montserrat({
 	subsets: ['latin', 'latin-ext'],
 	variable: '--font-montserrat',
-  })
+})
 
 export const metadata = {
 	metadataBase: new URL('https://argo-system.pl'),
 	icons: {
-		icon: [
-			{ url: '/logobez.png', type: 'image/png' },
-		],
-		apple: [
-			{ url: '/logobez.png', sizes: '180x180', type: 'image/png' },
-		],
+		icon: [{ url: '/logobez.png', type: 'image/png' }],
+		apple: [{ url: '/logobez.png', sizes: '180x180', type: 'image/png' }],
 		shortcut: '/logobez.png',
 	},
 	title: {
 		default: 'ARGO System | Facility Management & Obsługa Techniczna Nieruchomości',
 		template: '%s | ARGO System',
 	},
-	description: 'Profesjonalny Facility Management i obsługa techniczna budynków. Audyty bezpieczeństwa, serwis maszyn, pomiary elektryczne. Działamy na terenie Śląska (Katowice, Gliwice) i całej Polski. Ponad 15 lat doświadczenia.',
+	description:
+		'Profesjonalny Facility Management i obsługa techniczna budynków. Audyty bezpieczeństwa, serwis maszyn, pomiary elektryczne. Działamy na terenie Śląska (Katowice, Gliwice) i całej Polski. Ponad 15 lat doświadczenia.',
 	keywords: [
 		'Facility Management',
 		'Facility Management Śląsk',
@@ -56,7 +52,8 @@ export const metadata = {
 		url: 'https://argo-system.pl',
 		siteName: 'ARGO System',
 		title: 'ARGO System | Facility Management & Obsługa Techniczna',
-		description: 'Profesjonalny Facility Management i obsługa techniczna budynków. Audyty, serwis maszyn, pomiary elektryczne. Działamy na Śląsku i w całej Polsce.',
+		description:
+			'Profesjonalny Facility Management i obsługa techniczna budynków. Audyty, serwis maszyn, pomiary elektryczne. Działamy na Śląsku i w całej Polsce.',
 		images: [
 			{
 				url: '/og-image.jpg',
@@ -69,7 +66,8 @@ export const metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'ARGO System | Facility Management & Obsługa Techniczna',
-		description: 'Profesjonalny Facility Management i obsługa techniczna budynków. Audyty, serwis maszyn, pomiary elektryczne.',
+		description:
+			'Profesjonalny Facility Management i obsługa techniczna budynków. Audyty, serwis maszyn, pomiary elektryczne.',
 		images: ['/og-image.jpg'],
 	},
 	robots: {
@@ -134,14 +132,10 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="pl">
 			<head>
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-				/>
+				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+				<meta name="google-site-verification" content="haZztW2UvBuXX2npbq4pW1Ym5tTph4SuGH7KEWEaxWw" />
 			</head>
-			<body className={`${inter.variable} ${montserrat.variable} antialiased bg-white text-slate-900`}>
-				{children}
-			</body>
+			<body className={`${inter.variable} ${montserrat.variable} antialiased bg-white text-slate-900`}>{children}</body>
 		</html>
 	)
 }
