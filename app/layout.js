@@ -1,4 +1,5 @@
 import { Inter, Montserrat } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({
@@ -134,6 +135,18 @@ export default function RootLayout({ children }) {
 			<head>
 				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 				<meta name="google-site-verification" content="haZztW2UvBuXX2npbq4pW1Ym5tTph4SuGH7KEWEaxWw" />
+				<Script
+					src="https://www.googletagmanager.com/gtag/js?id=G-BHHCJCQTRE"
+					strategy="afterInteractive"
+				/>
+				<Script id="google-analytics" strategy="afterInteractive">
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-BHHCJCQTRE');
+					`}
+				</Script>
 			</head>
 			<body className={`${inter.variable} ${montserrat.variable} antialiased bg-white text-slate-900`}>{children}</body>
 		</html>
