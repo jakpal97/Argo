@@ -1,5 +1,16 @@
 'use client'
 
+// Google Ads conversion
+const gtagConversion = () => {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-18005751711/xfS4CLq-9YocEJ_v54lD',
+      value: 1.0,
+      currency: 'PLN',
+    })
+  }
+}
+
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { sendWycenaEmail } from '@/app/lib/actions'
@@ -149,7 +160,6 @@ function FormCard({ children, id }) {
       className="relative rounded-2xl overflow-hidden border border-white/10 backdrop-blur-xl"
       style={{ background: 'rgba(255,255,255,0.04)' }}
     >
-      {/* top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
       {children}
     </div>
@@ -179,17 +189,6 @@ function FormFooter({ items }) {
         </div>
       ))}
     </div>
-  )
-}
-
-function SubmitBtn({ onClick, children }) {
-  return (
-    <button
-      onClick={onClick}
-      className="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold text-sm rounded-lg px-6 py-3.5 transition-all duration-200 hover:shadow-[0_4px_24px_rgba(59,124,246,0.4)] active:scale-[0.99]"
-    >
-      {children}
-    </button>
   )
 }
 
@@ -276,6 +275,7 @@ function HeroForm() {
     const result = await sendWycenaEmail({ ...form, utm, formType: 'hero' })
     setIsSubmitting(false)
     if (result.success) {
+      gtagConversion() // ← Google Ads conversion
       setSent(true)
     } else {
       setError(true)
@@ -394,6 +394,7 @@ function HeroForm() {
         {error && (
           <p className="text-xs text-red-400 text-center">Wystąpił błąd serwera. Spróbuj ponownie lub napisz bezpośrednio na rdomagalski@argo-system.pl</p>
         )}
+
         <button
           onClick={submit}
           disabled={isSubmitting}
@@ -434,6 +435,7 @@ function QuickForm() {
     const result = await sendWycenaEmail({ name, contact, message, utm, formType: 'quick' })
     setIsSubmitting(false)
     if (result.success) {
+      gtagConversion() // ← Google Ads conversion
       setSent(true)
     } else {
       setError(true)
@@ -507,7 +509,6 @@ function QuickForm() {
 
 export default function WycenaPage() {
 
-  // UTM capture
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const utm = {}
@@ -528,7 +529,7 @@ export default function WycenaPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 h-16 border-b border-white/[0.06]"
         style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(20px)' }}>
         <Link href="https://www.argo-system.pl/" className="flex items-center gap-2.5 no-underline">
-          <img src="/logobez.png" alt="Argo logo" className='h-10'/>
+          <img src="/logobez.png" alt="Argo logo" className="h-10" />
         </Link>
         <a href="tel:+48517463469" className="hidden md:flex items-center gap-2 text-[13px] font-medium text-slate-400 hover:text-white transition-colors no-underline">
           <span className="w-[7px] h-[7px] rounded-full bg-green-400 shadow-[0_0_8px_#22c55e] animate-pulse" />
@@ -544,7 +545,6 @@ export default function WycenaPage() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
-        {/* mesh gradient */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
             radial-gradient(ellipse 60% 50% at 75% 40%, rgba(30,60,180,0.35) 0%, transparent 60%),
@@ -552,27 +552,20 @@ export default function WycenaPage() {
             radial-gradient(ellipse 50% 60% at 85% 80%, rgba(10,20,80,0.4) 0%, transparent 50%)
           `
         }} />
-        {/* grid */}
         <div className="absolute inset-0 pointer-events-none hero-grid" />
 
         <div className="relative z-10 max-w-[1220px] mx-auto px-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-16 items-center">
 
-            {/* LEFT */}
             <div className="animate-fadeUp">
-              
-
               <h1 className="font-extrabold leading-none tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(40px, 5vw, 68px)' }}>
                 OBSŁUGA<br />
                 <span className="text-white/40">TECHNICZNA</span><br />
                 <span className="text-blue-400">ŚLĄSK & POLSKA</span>
               </h1>
-
               <p className="text-base text-slate-400 leading-relaxed max-w-[480px] mb-9">
                 Lider Facility Management w Aglomeracji Śląskiej. Zapewniamy serwis techniczny, audyty i maintenance dla przemysłu na terenie Śląska (Katowice, Gliwice, Tychy) oraz całej Polski.
               </p>
-
-              {/* stats */}
               <div className="flex gap-9 mb-9 flex-wrap">
                 {[
                   { val: '15+', unit: '', label: 'lat doświadczenia' },
@@ -591,8 +584,6 @@ export default function WycenaPage() {
                   </>
                 ))}
               </div>
-
-              {/* badges */}
               <div className="flex gap-2.5 flex-wrap">
                 <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 border border-white/[0.09]" style={{ background: 'rgba(255,255,255,0.04)' }}>
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_6px_#22c55e]" />
@@ -607,7 +598,6 @@ export default function WycenaPage() {
               </div>
             </div>
 
-            {/* FORM */}
             <HeroForm />
           </div>
         </div>
@@ -628,7 +618,6 @@ export default function WycenaPage() {
       {/* ── SERVICES ── */}
       <section className="py-20 bg-black">
         <div className="max-w-[1220px] mx-auto px-10">
-          
           <h2 className="font-extrabold leading-none tracking-tight mb-3.5" style={{ fontSize: 'clamp(30px, 3.5vw, 46px)' }}>
             Twoja infrastruktura<br />pod <span className="text-blue-400">pełną kontrolą</span>
           </h2>
@@ -639,7 +628,7 @@ export default function WycenaPage() {
             {SERVICES.map(svc => (
               <div
                 key={svc.n}
-                className="relative rounded-2xl p-8 border border-white/[0.08] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-500/35 group"
+                className="relative rounded-2xl p-8 border border-white/[0.08] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-500/35"
                 style={{ background: 'rgba(255,255,255,0.04)' }}
               >
                 <span className="absolute top-5 right-6 text-[13px] font-bold text-white/[0.07]">{svc.n}</span>
@@ -662,7 +651,7 @@ export default function WycenaPage() {
       </section>
 
       {/* ── SLA ── */}
-      <section className="py-0 pb-20 bg-black">
+      <section className="pb-20 bg-black">
         <div className="max-w-[1220px] mx-auto px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative rounded-2xl p-10 border border-blue-500/20 overflow-hidden" style={{ background: 'rgba(59,124,246,0.06)' }}>
@@ -731,7 +720,6 @@ export default function WycenaPage() {
             className="relative rounded-2xl px-12 py-16 text-center overflow-hidden border border-blue-500/20"
             style={{ background: 'radial-gradient(ellipse 80% 100% at 50% 50%, rgba(20,50,160,0.4) 0%, rgba(10,10,10,0.9) 70%)' }}
           >
-            {/* grid overlay */}
             <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
               backgroundImage: 'linear-gradient(rgba(59,124,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59,124,246,0.04) 1px, transparent 1px)',
               backgroundSize: '40px 40px'
@@ -764,17 +752,13 @@ export default function WycenaPage() {
       <section id="wycena2" className="py-20 bg-black">
         <div className="max-w-[1220px] mx-auto px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-16 items-start">
-
-            {/* LEFT */}
             <div>
-              
               <h2 className="font-extrabold leading-none tracking-tight mb-3.5" style={{ fontSize: 'clamp(30px, 3vw, 44px)' }}>
                 Rozpocznijmy<br /><span className="text-blue-400">współpracę</span>
               </h2>
               <p className="text-[15px] text-slate-400 max-w-[400px] mb-8 leading-relaxed">
                 Skontaktuj się bezpośrednio z koordynatorem technicznym. Każde zapytanie traktujemy indywidualnie — nie ma tu gotowych cenników.
               </p>
-
               <div className="flex flex-col gap-3">
                 {[
                   { href: 'tel:+48517463469', icon: <IconPhone />, label: 'Telefon bezpośredni', value: '+48 517 463 469' },
@@ -805,8 +789,6 @@ export default function WycenaPage() {
                 ))}
               </div>
             </div>
-
-            {/* FORM */}
             <QuickForm />
           </div>
         </div>
