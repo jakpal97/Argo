@@ -10,6 +10,15 @@ export default function DziekujemyPage() {
     const t = setTimeout(() => setVisible(true), 80)
     return () => clearTimeout(t)
   }, [])
+  useEffect(() => {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18005751711/xfS4CLq-9YocEJ_v54lD',
+        value: 1.0,
+        currency: 'PLN',
+      })
+    }
+  }, [])
 
   return (
     <div
