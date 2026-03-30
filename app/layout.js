@@ -135,10 +135,7 @@ export default function RootLayout({ children }) {
 			<head>
 				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 				<meta name="google-site-verification" content="haZztW2UvBuXX2npbq4pW1Ym5tTph4SuGH7KEWEaxWw" />
-				<Script
-					src="https://www.googletagmanager.com/gtag/js?id=G-BHHCJCQTRE"
-					strategy="afterInteractive"
-				/>
+				<Script src="https://www.googletagmanager.com/gtag/js?id=G-BHHCJCQTRE" strategy="afterInteractive" />
 				<Script id="google-analytics" strategy="afterInteractive">
 					{`
 						window.dataLayer = window.dataLayer || [];
@@ -147,13 +144,26 @@ export default function RootLayout({ children }) {
 						gtag('config', 'G-BHHCJCQTRE');
 					`}
 				</Script>
-				<Script id="clarity-script" strategy="afterInteractive" dangerouslySetInnerHTML={{
-  __html: `(function(c,l,a,r,i,t,y){
+				<Script src="https://www.googletagmanager.com/gtag/js?id=AW-18005751711" strategy="afterInteractive" />
+				<Script id="google-ads-init" strategy="afterInteractive">
+					{`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18005751711');
+  `}
+				</Script>
+				<Script
+					id="clarity-script"
+					strategy="afterInteractive"
+					dangerouslySetInnerHTML={{
+						__html: `(function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "w3rmch45b7");`
-}} />
+  })(window, document, "clarity", "script", "w3rmch45b7");`,
+					}}
+				/>
 			</head>
 			<body className={`${inter.variable} ${montserrat.variable} antialiased bg-white text-slate-900`}>{children}</body>
 		</html>
