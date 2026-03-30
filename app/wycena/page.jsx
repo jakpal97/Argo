@@ -604,8 +604,10 @@ function QuickForm() {
 		const result = await sendWycenaEmail({ name, contact, message, utm, formType: 'quick' })
 		setIsSubmitting(false)
 		if (result.success) {
-			gtagConversion() // ← Google Ads conversion
-			setSent(true)
+			if (result.success) {
+        gtagConversion()
+        window.location.href = '/wycena/dziekujemy'
+    }
 		} else {
 			setError(true)
 		}
