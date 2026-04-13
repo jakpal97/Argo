@@ -775,19 +775,18 @@ export default function WycenaPage() {
 				<div className="relative z-10 max-w-[1220px] mx-auto px-10 w-full">
 					<div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-16 items-center">
 						<div className="animate-fadeUp">
-							<h1
-								className="font-extrabold leading-none tracking-[-0.03em] mb-6"
-								style={{ fontSize: 'clamp(40px, 5vw, 68px)' }}>
-								OBSŁUGA
-								<br />
-								<span className="text-white/40">TECHNICZNA</span>
-								<br />
-								<span className="text-blue-400">ŚLĄSK & POLSKA</span>
-							</h1>
-							<p className="text-base text-slate-400 leading-relaxed max-w-[480px] mb-9">
-								Lider Facility Management w Aglomeracji Śląskiej. Zapewniamy serwis techniczny, audyty i maintenance dla
-								przemysłu na terenie Śląska (Katowice, Gliwice, Tychy) oraz całej Polski.
-							</p>
+						<h1
+    className="font-extrabold leading-none tracking-[-0.03em] mb-6"
+    style={{ fontSize: 'clamp(40px, 5vw, 68px)' }}>
+    BEZPŁATNA
+    <br />
+    <span className="text-white/40">WYCENA FM</span>
+    <br />
+    <span className="text-blue-400">ODPOWIEDŹ W 24H</span>
+</h1>
+<p className="text-base text-slate-400 leading-relaxed max-w-[480px] mb-9">
+    Szukasz partnera do facility management lub obsługi technicznej obiektów komercyjnych na Śląsku? Opisz swój budynek — przygotujemy ofertę dopasowaną do Twojego obiektu w ciągu 24 godzin. Bez zobowiązań.
+</p>
 							<div className="flex gap-9 mb-9 flex-wrap">
 								{[
 									{ val: '15+', unit: '', label: 'lat doświadczenia' },

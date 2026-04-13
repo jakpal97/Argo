@@ -1,5 +1,5 @@
 export default function sitemap() {
-	const baseUrl = 'https://argo-system.pl'
+	const baseUrl = 'https://www.argo-system.pl'
 	const currentDate = new Date().toISOString()
 
 	return [
@@ -10,19 +10,25 @@ export default function sitemap() {
 			priority: 1,
 		},
 		{
-			url: `${baseUrl}/kontakt`,
+			url: `${baseUrl}/wycena`,
 			lastModified: currentDate,
 			changeFrequency: 'monthly',
 			priority: 0.9,
 		},
 		{
-			url: `${baseUrl}/uslugi/audyty`,
+			url: `${baseUrl}/kontakt`,
 			lastModified: currentDate,
 			changeFrequency: 'monthly',
 			priority: 0.8,
 		},
 		{
 			url: `${baseUrl}/uslugi/fm`,
+			lastModified: currentDate,
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		{
+			url: `${baseUrl}/uslugi/audyty`,
 			lastModified: currentDate,
 			changeFrequency: 'monthly',
 			priority: 0.8,
