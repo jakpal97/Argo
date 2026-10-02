@@ -65,6 +65,17 @@ const Footer = () => {
 										{item.name}
 									</a>
 								))}
+
+								{/* Oferta do pobrania */}
+								<a
+									href="/oferta.pdf"
+									download
+									className="group flex items-center gap-3 mt-4 px-5 py-3 bg-blue-600 hover:bg-blue-500 border border-blue-500 hover:border-blue-400 text-white font-inter text-sm font-semibold transition-all duration-300 w-fit">
+									<svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-200 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+										<path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+									</svg>
+									Pobierz ofertę PDF
+								</a>
 							</nav>
 						</div>
 					</div>

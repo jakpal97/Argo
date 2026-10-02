@@ -186,20 +186,36 @@ export default function Hero() {
                         />
                     </div>
 
-                    {/* Hamburger Button */}
-                    <button
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="relative z-50 group flex items-center gap-3 px-4 py-2 glass-panel rounded-none border border-white/20 hover:border-blue-500/50 hover:bg-white/5 transition-all duration-300"
-                    >
-                        <span className="hidden sm:block font-mono-tech text-xs uppercase tracking-widest text-white/80 group-hover:text-blue-400">
-                            {isMenuOpen ? 'Close' : 'Menu'}
-                        </span>
-                        <div className="flex flex-col gap-[5px] w-6">
-                            <span className={`h-[2px] bg-white w-full transition-all duration-300 group-hover:bg-blue-400 ${isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-                            <span className={`h-[2px] bg-white w-2/3 ml-auto group-hover:w-full transition-all duration-300 group-hover:bg-blue-400 ${isMenuOpen ? 'opacity-0' : ''}`} />
-                            <span className={`h-[2px] bg-white w-full transition-all duration-300 group-hover:bg-blue-400 ${isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-                        </div>
-                    </button>
+                    {/* Nav Right Side */}
+                    <div className="flex items-center gap-3 relative z-50">
+                        {/* Oferta Download Button */}
+                        <a
+                            href="/oferta.pdf"
+                            download
+                            className="group hidden sm:flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-500 hover:border-blue-400 text-white transition-all duration-300"
+                            title="Pobierz ofertę PDF"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            <span className="font-mono-tech text-xs uppercase tracking-widest">Pobierz Ofertę</span>
+                        </a>
+
+                        {/* Hamburger Button */}
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="group flex items-center gap-3 px-4 py-2 glass-panel rounded-none border border-white/20 hover:border-blue-500/50 hover:bg-white/5 transition-all duration-300"
+                        >
+                            <span className="hidden sm:block font-mono-tech text-xs uppercase tracking-widest text-white/80 group-hover:text-blue-400">
+                                {isMenuOpen ? 'Close' : 'Menu'}
+                            </span>
+                            <div className="flex flex-col gap-[5px] w-6">
+                                <span className={`h-[2px] bg-white w-full transition-all duration-300 group-hover:bg-blue-400 ${isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+                                <span className={`h-[2px] bg-white w-2/3 ml-auto group-hover:w-full transition-all duration-300 group-hover:bg-blue-400 ${isMenuOpen ? 'opacity-0' : ''}`} />
+                                <span className={`h-[2px] bg-white w-full transition-all duration-300 group-hover:bg-blue-400 ${isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </nav>
 
@@ -226,6 +242,19 @@ export default function Hero() {
 
                         <a href="/#about" onClick={() => setIsMenuOpen(false)} className="text-3xl md:text-5xl font-bold text-white/60 hover:text-white transition-colors tracking-tight py-2 border-b border-white/10 hover:border-blue-500/50">O firmie</a>
                         <a href="/kontakt" onClick={() => setIsMenuOpen(false)} className="text-3xl md:text-5xl font-bold text-white/60 hover:text-white transition-colors tracking-tight py-2 border-b border-white/10 hover:border-blue-500/50">Kontakt</a>
+
+                        {/* Oferta Download w menu */}
+                        <a
+                            href="/oferta.pdf"
+                            download
+                            onClick={() => setIsMenuOpen(false)}
+                            className="group flex items-center justify-between text-3xl md:text-5xl font-bold text-blue-400 hover:text-blue-300 transition-colors tracking-tight py-2 border-b border-blue-500/30 hover:border-blue-400/60"
+                        >
+                            <span>Pobierz Ofertę</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 group-hover:translate-y-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </a>
                     </div>
                     <div className="absolute bottom-10 left-0 w-full text-center"><p className="text-gray-500 font-mono-tech text-xs uppercase tracking-widest">ARGO SYSTEM • SYSTEM ONLINE</p></div>
                 </div>
