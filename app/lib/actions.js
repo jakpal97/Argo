@@ -19,7 +19,7 @@ export async function sendContactEmail(formData) {
 		const data = await resend.emails.send({
 			// --- TU BYŁA ZMIANA ---
 			// Musi być @kontakt.argo-system.pl, bo taką domenę zweryfikowaliśmy
-			from: 'Formularz Argo <powiadomienia@kontakt.argo-system.pl>',
+			from: 'Formularz Argo <powiadomienia@argo-system.pl>',
 
 			// Twój mail, na który przyjdzie wiadomość
 			to: ['rdomagalski@argo-system.pl'],
